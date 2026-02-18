@@ -1,32 +1,80 @@
-
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3">
-  <div class="container px-4">
-    <a class="navbar-brand d-flex align-items-center" href="#">
+<nav class="navbar navbar-expand-lg sticky-top" 
+     style="background: linear-gradient(180deg, #1b2838 0%, #171a21 100%); 
+            border-bottom: 2px solid #2a475e; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);">
+    <div class="container-fluid px-4">
+        
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center" href="#">
       <img src="assets/img/logo.png"
            alt="Arenacore" 
            height="80" 
            class="me-2">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-      aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="mainNavbar">
-      <ul class="navbar-nav ms-auto gap-sm-3">
-        <li class="nav-item">
-          <a class="nav-link active " [routerLink]="['/landingPage']" aria-current="page">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/dashboard/perfilUser']" aria-current="page">Perfil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/login']">Login</a>
-        </li>
-        <li class="nav-item">
-          <button class="btn btn-dark me-2" (click)="logout()" [routerLink]="['/home']">Log Out</button>
-        </li>
-      </ul>
+        <!-- Toggle para móvil -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                style="color: #66c0f4;">
+            <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <!-- Links de navegación -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto gap-lg-4">
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="#" 
+                       style="color: #c7d5e0; transition: all 0.3s ease; font-size: 0.95rem; letter-spacing: 0.3px;"
+                       onmouseover="this.style.color='#66c0f4'" 
+                       onmouseout="this.style.color='#c7d5e0'">
+                        INICIO
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="#tournaments" 
+                       style="color: #c7d5e0; transition: all 0.3s ease; font-size: 0.95rem; letter-spacing: 0.3px;"
+                       onmouseover="this.style.color='#66c0f4'" 
+                       onmouseout="this.style.color='#c7d5e0'">
+                        TORNEOS
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="#features" 
+                       style="color: #c7d5e0; transition: all 0.3s ease; font-size: 0.95rem; letter-spacing: 0.3px;"
+                       onmouseover="this.style.color='#66c0f4'" 
+                       onmouseout="this.style.color='#c7d5e0'">
+                        CARACTERÍSTICAS
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="#pricing" 
+                       style="color: #c7d5e0; transition: all 0.3s ease; font-size: 0.95rem; letter-spacing: 0.3px;"
+                       onmouseover="this.style.color='#66c0f4'" 
+                       onmouseout="this.style.color='#c7d5e0'">
+                        PRECIOS
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Botones de acción -->
+            <div class="d-flex gap-2 mt-3 mt-lg-0">
+                <button class="btn btn-sm px-3 py-2 fw-semibold" 
+                        style="background-color: transparent; border: 2px solid #2a475e; color: #c7d5e0; 
+                               transition: all 0.3s ease; font-size: 0.9rem;"
+                        [routerLink]="['/login']"
+                        onmouseover="this.style.backgroundColor='#2a475e'; this.style.borderColor='#66c0f4'"
+                        onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='#2a475e'">
+                    INICIAR SESIÓN
+                </button>
+                <button class="btn btn-sm px-3 py-2 fw-semibold" 
+                        style="background: linear-gradient(90deg, #06BFFF 0%, #2671be 100%); 
+                               border: none; color: white; box-shadow: 0 2px 8px rgba(102, 192, 244, 0.4);
+                               transition: all 0.3s ease; font-size: 0.9rem;"
+                        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 16px rgba(102, 192, 244, 0.6)'"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(102, 192, 244, 0.4)'">
+                    REGISTRARSE
+                </button>
+            </div>
+        </div>
     </div>
-  </div>
 </nav>
