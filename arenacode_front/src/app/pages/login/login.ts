@@ -11,6 +11,7 @@ import { Router, RouterLink } from '@angular/router';
 export class Login {
 
   private router = inject(Router)
+  
 
   constructor(){}
 
