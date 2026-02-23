@@ -1,0 +1,57 @@
+<div class="min-vh-100 d-flex align-items-center justify-content-center position-relative overflow-hidden" 
+     style="background: linear-gradient(#ffffff 100%);">
+
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                
+                <!-- Icono 404 -->
+                <div class="mb-4">
+                    <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-4"
+                         style="width: 150px; height: 150px; 
+                                background: linear-gradient(135deg, rgba(102, 192, 244, 0.2) 0%, rgba(42, 71, 94, 0.2) 100%);
+                                border: 3px solid #2a475e;">
+                        <svg width="80" height="80" fill="none" stroke="#66c0f4" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" 
+                                  d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Código de error -->
+                <h1 class="display-1 fw-bold mb-3" 
+                    style="color: #66c0f4; font-size: 8rem; letter-spacing: -2px; 
+                           text-shadow: 0 0 40px rgba(102, 192, 244, 0.3);">
+                    404
+                </h1>
+
+                <!-- Mensaje principal -->
+                <h2 class="display-6 fw-bold mb-3" style="color: #c7d5e0; letter-spacing: -0.5px;">
+                    Página no encontrada
+                </h2>
+
+                <p class="lead mb-5" style="color: #8f98a0; font-size: 1.15rem; line-height: 1.7; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Lo sentimos, la página que estás buscando no existe o ha sido movida. 
+                    Puede que el torneo haya finalizado o la URL sea incorrecta.
+                </p>
+
+                <!-- Botones de acción -->
+                <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
+                    <button class="btn btn-lg px-5 py-3 fw-semibold" 
+                            style="background: linear-gradient(90deg, #06BFFF 0%, #2671be 100%); 
+                                   border: none; color: white; box-shadow: 0 4px 16px rgba(102, 192, 244, 0.4);
+                                   transition: all 0.3s ease; font-size: 1rem;"
+                            [routerLink]="['/landingPage']"
+                            
+                            onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 24px rgba(102, 192, 244, 0.6)'"
+                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(102, 192, 244, 0.4)'">
+                        VOLVER AL INICIO
+                        <!-- cambiar luego de direccion a dashboard -->
+                    </button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
