@@ -1,5 +1,9 @@
 import { Component, inject } from '@angular/core';
+<<<<<<< HEAD
 import { Router, RouterLink } from '@angular/router';
+=======
+import { Router } from '@angular/router';
+>>>>>>> dev
 
 @Component({
   selector: 'app-navbar',
@@ -9,13 +13,20 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class Navbar {
 
+<<<<<<< HEAD
   private router = inject(Router)
+=======
+  private router = inject(Router);
+>>>>>>> dev
 
-  //moficar si es necesario 
+  // modificar si es necesario
   logout(){
-    localStorage.removeItem('accessToken')
-    localStorage.removeItem('refreshToken')
-    this.router.navigate(['/home'])
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+    this.router.navigate(['/home']);
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
 }
