@@ -6,7 +6,7 @@
    1. WRAPPER
    =================================== */
 .faqs-wrapper {
-    background: #1b2838;
+    background: #ffffff;
     min-height: 100vh;
 }
 
@@ -14,8 +14,9 @@
    2. HEADER SECTION
    =================================== */
 .faqs-header {
-    background: linear-gradient(135deg, #1b2838 0%, #16202d 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     padding: 4rem 0 3rem;
+    border-bottom: 1px solid #e9ecef;
 }
 
 .faqs-icon-circle {
@@ -32,14 +33,14 @@
 }
 
 .faqs-title {
-    color: #ffffff;
+    color: #2a475e;
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
 
 .faqs-description {
-    color: #b8b6b4;
+    color: #6c757d;
     font-size: 1.2rem;
     margin: 0;
 }
@@ -48,7 +49,7 @@
    3. CONTENT SECTION
    =================================== */
 .faqs-content {
-    background: #16202d;
+    background: #ffffff;
 }
 
 /* ===================================
@@ -78,16 +79,17 @@
    5. FAQ ITEMS
    =================================== */
 .faq-item {
-    background: linear-gradient(145deg, #2a475e 0%, #1f3a4d 100%);
-    border: 1px solid rgba(102, 192, 244, 0.15);
+    background: #ffffff;
+    border: 2px solid #e9ecef;
     border-radius: 16px;
     margin-bottom: 1rem;
     overflow: hidden;
     transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .faq-item:hover {
-    border-color: rgba(102, 192, 244, 0.4);
+    border-color: #66c0f4;
     box-shadow: 0 4px 20px rgba(102, 192, 244, 0.15);
 }
 
@@ -98,7 +100,7 @@
     width: 100%;
     background: transparent;
     border: none;
-    color: #ffffff;
+    color: #2a475e;
     font-size: 1.1rem;
     font-weight: 600;
     padding: 1.5rem 2rem;
@@ -134,11 +136,11 @@
    7. RESPUESTA (ACCORDION BODY)
    =================================== */
 .faq-answer {
-    color: #b8b6b4;
+    color: #6c757d;
     font-size: 1rem;
     line-height: 1.8;
     padding: 0 2rem 1.5rem 2rem;
-    background: rgba(22, 32, 45, 0.4);
+    background: #f8f9fa;
 }
 
 /* ===================================
@@ -181,22 +183,23 @@
    9. CTA CARD
    =================================== */
 .faq-cta-card {
-    background: linear-gradient(145deg, #2a475e 0%, #1f3a4d 100%);
-    border: 1px solid rgba(102, 192, 244, 0.2);
+    background: linear-gradient(145deg, #f8f9fa 0%, #ffffff 100%);
+    border: 2px solid #e9ecef;
     border-radius: 20px;
     padding: 3rem;
     text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .faq-cta-title {
-    color: #ffffff;
+    color: #2a475e;
     font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
 
 .faq-cta-description {
-    color: #b8b6b4;
+    color: #6c757d;
     font-size: 1.1rem;
     margin-bottom: 2rem;
 }
@@ -325,7 +328,7 @@
 }
 
 /* ===================================
-   13. DARK MODE OPTIMIZATION
+   13. LIGHT MODE OPTIMIZATION
    =================================== */
 ::selection {
     background: #66c0f4;
@@ -337,11 +340,11 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #16202d;
+    background: #f8f9fa;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #2a475e;
+    background: #dee2e6;
     border-radius: 6px;
 }
 
