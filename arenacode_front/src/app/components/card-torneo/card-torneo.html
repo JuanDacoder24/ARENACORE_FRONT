@@ -1,0 +1,60 @@
+<div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden position-relative" style="background-color: #1b2838; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+    onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)';"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+
+    <!-- Indicador de Estado -->
+    <div class="position-absolute top-0 end-0 m-3 px-3 py-1 rounded-pill fw-bold text-white text-uppercase" 
+         style="font-size: 0.75rem; letter-spacing: 1px; z-index: 2;"
+         [ngStyle]="{'background-color': torneo?.estado === 'abierto' ? '#28a745' : (torneo?.estado === 'en_progreso' ? '#ffc107' : '#dc3545')}">
+        {{ torneo?.estado || 'Desconocido' }}
+    </div>
+
+    <!-- Imagen de cabecera predeterminada -->
+    <div style="height: 140px; background: linear-gradient(135deg, #2a475e 0%, #0e1419 100%);" class="d-flex align-items-center justify-content-center">
+        <svg width="64" height="64" fill="none" stroke="#66c0f4" stroke-width="1.5" viewBox="0 0 24 24" style="opacity: 0.5;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+        </svg>
+    </div>
+
+    <div class="card-body p-4 d-flex flex-column">
+        <!-- Título y Tipo -->
+        <div class="mb-3">
+            <span class="badge mb-2" style="background-color: rgba(102, 192, 244, 0.2); color: #66c0f4; border: 1px solid #66c0f4;">
+                {{ torneo?.tipo === 'privado' ? '🔒 Privado' : '🌍 Público' }}
+            </span>
+            <h5 class="card-title fw-bold text-white mb-1">{{ torneo?.nombre || 'Nombre del Torneo' }}</h5>
+            <p class="card-text text-truncate" style="color: #8f98a0; font-size: 0.9rem;">
+                {{ torneo?.descripcion || 'Sin descripción disponible.' }}
+            </p>
+        </div>
+
+        <!-- Estadísticas del torneo -->
+        <div class="row g-2 mb-4 mt-auto">
+            <div class="col-6">
+                <div class="p-2 rounded-3 text-center" style="background-color: #0e1419; border: 1px solid #2a475e;">
+                    <small class="d-block text-uppercase fw-bold" style="color: #8f98a0; font-size: 0.65rem;">Participantes</small>
+                    <span class="fw-bold text-white">{{ torneo?.participantes_actuales || 0 }} / {{ torneo?.max_participantes || 0 }}</span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="p-2 rounded-3 text-center" style="background-color: #0e1419; border: 1px solid #2a475e;">
+                    <small class="d-block text-uppercase fw-bold" style="color: #8f98a0; font-size: 0.65rem;">Premio Total</small>
+                    <span class="fw-bold" style="color: #FFD700;">{{ (torneo?.premio_total || 0) | currency:'USD':'symbol':'1.0-2' }}</span>
+                </div>
+            </div>
+            <div class="col-12 mt-2">
+                <div class="p-2 rounded-3 d-flex justify-content-between align-items-center" style="background-color: #0e1419; border: 1px solid #2a475e;">
+                    <small class="text-uppercase fw-bold" style="color: #8f98a0; font-size: 0.65rem;">Fecha de Inicio</small>
+                    <span class="fw-bold" style="color: #c7d5e0; font-size: 0.85rem;">{{ (torneo?.fecha_inicio | date:'dd MMM yyyy, HH:mm') || 'Por definir' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón de Acción -->
+        <button class="btn w-100 fw-bold py-2 mt-auto" 
+                style="background: linear-gradient(90deg, #06BFFF 0%, #2671be 100%); color: white; border: none; transition: all 0.2s;"
+                [disabled]="torneo?.estado !== 'abierto' || torneo?.participantes_actuales >= torneo?.max_participantes">
+            {{ torneo?.estado === 'abierto' ? (torneo?.participantes_actuales >= torneo?.max_participantes ? 'LLENO' : 'INSCRIBIRSE') : 'VER DETALLES' }}
+        </button>
+    </div>
+</div>
