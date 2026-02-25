@@ -12,17 +12,12 @@ import { CommonModule } from '@angular/common';
 })
 export class Login {
 
-<<<<<<< HEAD
-  private router = inject(Router)
-  
-=======
   private router = inject(Router);
   private userService = inject(UserService);
 
   email = 'progamer01@arena.com';
   password = 'password123';
   errorMessage = '';
->>>>>>> 96186fd (no message)
 
   constructor(){}
 

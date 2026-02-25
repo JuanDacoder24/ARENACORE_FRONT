@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import { Component } from '@angular/core';
-=======
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
->>>>>>> 96186fd (no message)
 
 @Component({
   selector: 'app-navbar',
@@ -13,16 +9,12 @@ import { Router } from '@angular/router';
 })
 export class Navbar {
 
-<<<<<<< HEAD
-=======
-  private router = inject(Router)
+  private router = inject(Router);
 
-  //moficar si es necesario 
+  // modificar si es necesario
   logout(){
-    localStorage.removeItem('accessToken')
-    localStorage.removeItem('refreshToken')
-    this.router.navigate(['/home'])
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+    this.router.navigate(['/home']);
   }
-
->>>>>>> 96186fd (no message)
 }
