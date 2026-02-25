@@ -483,7 +483,7 @@ body {
    9. GAMES - CARRUSEL BONITO
    =================================== */
 .games-section {
-    background: #1b2838;
+    background: #ffffff;
     padding: 5rem 0;
 }
 
@@ -570,9 +570,10 @@ body {
    10. TESTIMONIALS - MÁS ELEGANTES
    =================================== */
 .testimonials-section {
-    background: #16202d;
+    background: #ffffff;
     padding: 5rem 0;
     position: relative;
+    
 }
 
 .testimonial-card {
