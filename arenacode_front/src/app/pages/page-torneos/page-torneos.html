@@ -1,1 +1,21 @@
-<p>page-torneos works!</p>
+<div class="min-vh-100 py-5" style="background-color: #0e1419; color: #c7d5e0;">
+    <div class="container">
+        
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <div>
+                <h2 class="fw-bold text-white mb-2" style="font-size: 2.5rem; letter-spacing: -1px;">Torneos Disponibles</h2>
+                <p style="color: #8f98a0; font-size: 1.1rem;">Encuentra y compite en los mejores torneos globales.</p>
+            </div>
+            <button class="btn px-4 py-2 rounded-pill fw-bold" style="background: rgba(102, 192, 244, 0.1); color: #66c0f4; border: 1px solid #66c0f4;">
+                FILTRAR
+            </button>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-xl-4" *ngFor="let torneo of torneos">
+                <app-card-torneo [torneo]="torneo"></app-card-torneo>
+            </div>
+        </div>
+
+    </div>
+</div>

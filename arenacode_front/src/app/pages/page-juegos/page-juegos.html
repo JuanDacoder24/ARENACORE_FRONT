@@ -1,1 +1,25 @@
-<p>page-juegos works!</p>
+<div class="min-vh-100 py-5" style="background-color: #0e1419; color: #c7d5e0;">
+    <div class="container">
+        
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <div>
+                <h2 class="fw-bold text-white mb-2" style="font-size: 2.5rem; letter-spacing: -1px;">Nuestros Juegos</h2>
+                <p style="color: #8f98a0; font-size: 1.1rem;">Selecciona tu juego favorito y demuestra tu habilidad.</p>
+            </div>
+            <div class="input-group" style="max-width: 300px;">
+                <input type="text" class="form-control" placeholder="Buscar juego..." 
+                       style="background-color: #1b2838; border: 1px solid #2a475e; color: white;">
+                <button class="btn text-white" style="background-color: #2a475e; border: 1px solid #2a475e;">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m1.35-5.65a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let juego of juegos">
+                <app-card-juego [juego]="juego"></app-card-juego>
+            </div>
+        </div>
+
+    </div>
+</div>

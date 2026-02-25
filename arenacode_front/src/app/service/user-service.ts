@@ -8,17 +8,28 @@ export interface User {
 }
 
 export interface LoginResponse {
-  token: string;
+  success: boolean;
+  message: string;
+  data: {
+    user: any;
+    token: string;
+  };
 }
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
   private httpClient = inject(HttpClient);
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'http://localhost:3000/api/auth';
 
-  login(user: User): Promise<LoginResponse> {
+  login(credentials: any): Promise<LoginResponse> {
     return lastValueFrom(
-      this.httpClient.post<LoginResponse>(`${this.baseUrl}/login`, user)
+      this.httpClient.post<LoginResponse>(`${this.baseUrl}/login`, credentials)
+    );
+  }
+
+  getEstadisticas(userId: number): Promise<any> {
+    return lastValueFrom(
+      this.httpClient.get<any>(`http://localhost:3000/api/estadisticas/${userId}`)
     );
   }
 }
