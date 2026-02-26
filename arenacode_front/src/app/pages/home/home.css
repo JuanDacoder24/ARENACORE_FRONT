@@ -1,0 +1,568 @@
+/* ===================================
+   DASHBOARD - STEAM STYLE
+   =================================== */
+
+/* ===================================
+   1. WRAPPER
+   =================================== */
+.dashboard-wrapper {
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* ===================================
+   2. HEADER
+   =================================== */
+.dashboard-header {
+    background: #ffffff;
+    border-bottom: 2px solid #e9ecef;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-title {
+    color: #2a475e;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.dashboard-subtitle {
+    color: #6c757d;
+    font-size: 1rem;
+    margin: 0.5rem 0 0 0;
+}
+
+.btn-create-tournament {
+    background: linear-gradient(90deg, #06BFFF 0%, #2a8fbd 100%);
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(102, 192, 244, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-create-tournament:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 192, 244, 0.5);
+}
+
+/* ===================================
+   3. STATS CARDS
+   =================================== */
+.dashboard-stats {
+    padding: 2rem 0;
+}
+
+.stat-card {
+    background: #ffffff;
+    border: 2px solid #e9ecef;
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card-blue:hover { border-color: #66c0f4; }
+.stat-card-green:hover { border-color: #28a745; }
+.stat-card-purple:hover { border-color: #a78bfa; }
+.stat-card-orange:hover { border-color: #fb923c; }
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-card-blue .stat-icon {
+    background: linear-gradient(135deg, #66c0f4 0%, #2a8fbd 100%);
+    color: white;
+}
+
+.stat-card-green .stat-icon {
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+    color: white;
+}
+
+.stat-card-purple .stat-icon {
+    background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+    color: white;
+}
+
+.stat-card-orange .stat-icon {
+    background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+    color: white;
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-number {
+    color: #2a475e;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+}
+
+.stat-label {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.stat-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.stat-badge-up {
+    background: rgba(40, 167, 69, 0.15);
+    color: #28a745;
+}
+
+.stat-badge-neutral {
+    background: rgba(108, 117, 125, 0.15);
+    color: #6c757d;
+}
+
+/* ===================================
+   4. CONTENT CARDS
+   =================================== */
+.dashboard-content {
+    padding-bottom: 3rem;
+}
+
+.content-card {
+    background: #ffffff;
+    border: 2px solid #e9ecef;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.content-card-header {
+    padding: 1.5rem;
+    border-bottom: 2px solid #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-card-title {
+    color: #2a475e;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.content-card-title svg {
+    color: #66c0f4;
+}
+
+.view-all-link {
+    color: #66c0f4;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.view-all-link:hover {
+    color: #2a8fbd;
+}
+
+.content-card-body {
+    padding: 1.5rem;
+}
+
+/* ===================================
+   5. TOURNAMENT ITEMS
+   =================================== */
+.tournament-item {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.tournament-item:last-child {
+    margin-bottom: 0;
+}
+
+.tournament-item:hover {
+    background: #ffffff;
+    border-color: #66c0f4;
+    box-shadow: 0 4px 15px rgba(102, 192, 244, 0.15);
+}
+
+.tournament-game-icon {
+    width: 80px;
+    height: 45px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tournament-game-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tournament-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.tournament-name {
+    color: #2a475e;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tournament-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 0;
+}
+
+.meta-item {
+    color: #6c757d;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.meta-item svg {
+    flex-shrink: 0;
+}
+
+.tournament-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.tournament-status {
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-active {
+    background: rgba(40, 167, 69, 0.15);
+    color: #28a745;
+}
+
+.status-progress {
+    background: rgba(102, 192, 244, 0.15);
+    color: #66c0f4;
+}
+
+.status-finished {
+    background: rgba(108, 117, 125, 0.15);
+    color: #6c757d;
+}
+
+.btn-action {
+    background: transparent;
+    border: 2px solid #e9ecef;
+    color: #6c757d;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-action:hover {
+    background: #66c0f4;
+    border-color: #66c0f4;
+    color: white;
+}
+
+/* ===================================
+   6. EMPTY STATE
+   =================================== */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.empty-state svg {
+    color: #dee2e6;
+    margin-bottom: 1.5rem;
+}
+
+.empty-state h3 {
+    color: #2a475e;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+    color: #6c757d;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.btn-create-empty {
+    background: linear-gradient(90deg, #06BFFF 0%, #2a8fbd 100%);
+    border: none;
+    color: white;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(102, 192, 244, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-create-empty:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 192, 244, 0.5);
+}
+
+/* ===================================
+   7. QUICK ACTIONS
+   =================================== */
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.quick-action-btn {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    color: #2a475e;
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.quick-action-btn:hover {
+    background: #ffffff;
+    border-color: #66c0f4;
+    color: #66c0f4;
+    transform: translateX(5px);
+}
+
+.quick-action-btn svg {
+    flex-shrink: 0;
+}
+
+/* ===================================
+   8. ACTIVITY LIST
+   =================================== */
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.activity-item {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+}
+
+.activity-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 24px;
+    width: 2px;
+    height: calc(100% + 1rem);
+    background: #e9ecef;
+}
+
+.activity-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 4px;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 0 2px #e9ecef;
+}
+
+.activity-dot-blue {
+    background: #66c0f4;
+}
+
+.activity-dot-green {
+    background: #28a745;
+}
+
+.activity-dot-purple {
+    background: #a78bfa;
+}
+
+.activity-dot-orange {
+    background: #fb923c;
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-text {
+    color: #2a475e;
+    font-size: 0.9rem;
+    margin: 0 0 0.25rem 0;
+    line-height: 1.5;
+}
+
+.activity-text strong {
+    font-weight: 600;
+}
+
+.activity-time {
+    color: #6c757d;
+    font-size: 0.8rem;
+}
+
+/* ===================================
+   9. RESPONSIVE
+   =================================== */
+@media (max-width: 991px) {
+    .dashboard-title {
+        font-size: 1.75rem;
+    }
+    
+    .btn-create-tournament {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .stat-number {
+        font-size: 1.75rem;
+    }
+    
+    .tournament-game-icon {
+        width: 60px;
+        height: 34px;
+    }
+}
+
+@media (max-width: 767px) {
+    .dashboard-title {
+        font-size: 1.5rem;
+    }
+    
+    .dashboard-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .stat-card {
+        padding: 1.25rem;
+    }
+    
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .tournament-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .tournament-game-icon {
+        width: 100%;
+        height: 60px;
+    }
+    
+    .tournament-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .tournament-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* ===================================
+   10. UTILITIES
+   =================================== */
+::selection {
+    background: #66c0f4;
+    color: white;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #dee2e6;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #66c0f4;
+}

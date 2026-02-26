@@ -1,39 +1,40 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Torneo } from '../models/torneo';    // interfaz/DTO
+import { lastValueFrom } from 'rxjs';
+import { Torneo } from '../models/torneo';    
 
 @Injectable({
   providedIn: 'root',
 })
 export class TorneoService {
 
-  private readonly baseUrl = '/api/torneos';   // la URL de tu API
+  private baseUrl : string = 'http://localhost:8080/api/torneos'
+  private httpClient = inject(HttpClient)
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   // obtener todos los torneos
-  getTorneos(): Observable<Torneo[]> {
-    return this.http.get<Torneo[]>(this.baseUrl);
+  getTorneos(): Promise<Torneo[]> {
+    return lastValueFrom(this.httpClient.get<Torneo[]>(this.baseUrl))
   }
 
   // obtener un torneo por id
-  getTorneo(id: number): Observable<Torneo> {
-    return this.http.get<Torneo>(`${this.baseUrl}/${id}`);
+  getTorneoById(id: number): Promise<Torneo> {
+    return lastValueFrom(this.httpClient.get<Torneo>(`${this.baseUrl}/${id}`))
   }
 
   // crear uno nuevo
-  crearTorneo(t: Torneo): Observable<Torneo> {
-    return this.http.post<Torneo>(this.baseUrl, t);
+  crearTorneo(torneo: Torneo): Promise<Torneo> {
+    return lastValueFrom(this.httpClient.post<Torneo>(this.baseUrl, torneo))
   }
 
   // actualizar
-  actualizarTorneo(id: number, t: Torneo): Observable<Torneo> {
-    return this.http.put<Torneo>(`${this.baseUrl}/${id}`, t);
+  actualizarTorneo(id: number, torneo: Torneo): Promise<Torneo> {
+    return lastValueFrom(this.httpClient.put<Torneo>(`${this.baseUrl}/${id}`, torneo))
   }
 
   // borrar
-  borrarTorneo(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/${id}`);
+  borrarTorneo(id: number): Promise<void> {
+    return lastValueFrom(this.httpClient.delete<void>(`${this.baseUrl}/${id}`))
   }
 }

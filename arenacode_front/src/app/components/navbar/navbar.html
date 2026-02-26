@@ -8,7 +8,7 @@
       <img src="assets/img/logo.png"
            alt="Arenacore" 
            height="80" 
-           class="me-2">
+           class="me-2" [routerLink]="['home']">
     </a>
 
         <!-- Toggle para móvil -->
@@ -26,20 +26,20 @@
                     <a class="nav-link fw-semibold" href="#" 
                        style="color: #c7d5e0; transition: all 0.3s ease; font-size: 0.95rem; letter-spacing: 0.3px;"
                        onmouseover="this.style.color='#66c0f4'" 
-                       onmouseout="this.style.color='#c7d5e0'">
+                       onmouseout="this.style.color='#c7d5e0'" [routerLink]="['pageJuegos']">
                         Juegos
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-semibold" href="#tournaments" 
+                    <a class="nav-link fw-semibold"  
                        style="color: #c7d5e0; transition: all 0.3s ease; font-size: 0.95rem; letter-spacing: 0.3px;"
                        onmouseover="this.style.color='#66c0f4'" 
-                       onmouseout="this.style.color='#c7d5e0'">
+                       onmouseout="this.style.color='#c7d5e0'" [routerLink]="['pageTorneos']">
                         Torneos
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-semibold" href="#features" 
+                    <a class="nav-link fw-semibold" 
                        style="color: #c7d5e0; transition: all 0.3s ease; font-size: 0.95rem; letter-spacing: 0.3px;"
                        onmouseover="this.style.color='#66c0f4'" 
                        onmouseout="this.style.color='#c7d5e0'">
@@ -47,18 +47,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-semibold" href="#pricing" 
+                    <a class="nav-link fw-semibold"  
                        style="color: #c7d5e0; transition: all 0.3s ease; font-size: 0.95rem; letter-spacing: 0.3px;"
                        onmouseover="this.style.color='#66c0f4'" 
-                       onmouseout="this.style.color='#c7d5e0'">
+                       onmouseout="this.style.color='#c7d5e0'" [routerLink]="['faqs']">
                         FAQs
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-semibold" href="#pricing" 
+                    <a class="nav-link fw-semibold" 
                        style="color: #c7d5e0; transition: all 0.3s ease; font-size: 0.95rem; letter-spacing: 0.3px;"
                        onmouseover="this.style.color='#66c0f4'" 
-                       onmouseout="this.style.color='#c7d5e0'">
+                       onmouseout="this.style.color='#c7d5e0'" [routerLink]="['info']">
                         Info
                     </a>
                 </li>

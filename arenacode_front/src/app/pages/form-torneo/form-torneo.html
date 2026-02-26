@@ -1,1 +1,337 @@
-<p>form-torneo works!</p>
+<div class="form-wrapper">
+    
+    <!-- Header -->
+    <section class="form-header">
+        <div class="container py-4">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-3">
+                    <button class="btn-back" [routerLink]="['/dashboard/home']">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <div>
+                        <h1 class="form-title">{{ isNew ? 'Crear Nuevo Torneo' : 'Editar Torneo' }}</h1>
+                        <p class="form-subtitle">{{ isNew ? 'Completa la información para crear tu torneo' : 'Modifica los detalles del torneo' }}</p>
+                    </div>
+                </div>
+                <div class="form-badge">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {{ isNew ? 'Nuevo' : 'Editando' }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Content -->
+    <section class="form-content">
+        <div class="container py-5">
+            <form [formGroup]="modelForm" (ngSubmit)="getDataForm()">
+                <div class="row g-4">
+                    
+                    <!-- Columna Izquierda -->
+                    <div class="col-lg-8">
+                        
+                        <!-- Información Básica -->
+                        <div class="form-card">
+                            <div class="form-card-header">
+                                <h3 class="form-card-title">
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    Información Básica
+                                </h3>
+                            </div>
+                            <div class="form-card-body">
+                                
+                                <!-- Nombre -->
+                                <div class="form-group">
+                                    <label class="form-label" for="nombre">
+                                        Nombre del Torneo
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="nombre"
+                                        formControlName="nombre"
+                                        placeholder="Ej: Copa Steam 2024"
+                                    />
+                                    <small class="form-hint">Elige un nombre atractivo y descriptivo</small>
+                                </div>
+
+                                <!-- Descripción -->
+                                <div class="form-group">
+                                    <label class="form-label" for="descripcion">
+                                        Descripción
+                                    </label>
+                                    <textarea 
+                                        class="form-control" 
+                                        id="descripcion"
+                                        formControlName="descripcion"
+                                        rows="4"
+                                        placeholder="Describe tu torneo, formato, requisitos..."
+                                    ></textarea>
+                                    <small class="form-hint">Proporciona detalles sobre el torneo</small>
+                                </div>
+
+                                <!-- Juego y Organizador -->
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="juego_id">
+                                            Juego
+                                            <span class="required">*</span>
+                                        </label>
+                                        <select class="form-control" id="juego_id" formControlName="juego_id">
+                                            <option value="">Selecciona un juego</option>
+                                            <option value="1">CS:GO</option>
+                                            <option value="2">Dota 2</option>
+                                            <option value="3">League of Legends</option>
+                                            <option value="4">Valorant</option>
+                                            <option value="5">Fortnite</option>
+                                            <option value="6">PUBG</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="organizador_id">
+                                            ID Organizador
+                                            <span class="required">*</span>
+                                        </label>
+                                        <input 
+                                            type="text" 
+                                            class="form-control" 
+                                            id="organizador_id"
+                                            formControlName="organizador_id"
+                                            placeholder="ID del organizador"
+                                        />
+                                    </div>
+                                </div>
+
+                                <!-- Reglas -->
+                                <div class="form-group">
+                                    <label class="form-label" for="reglas">
+                                        Reglas del Torneo
+                                    </label>
+                                    <textarea 
+                                        class="form-control" 
+                                        id="reglas"
+                                        formControlName="reglas"
+                                        rows="5"
+                                        placeholder="Detalla las reglas y normas del torneo..."
+                                    ></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Fechas -->
+                        <div class="form-card">
+                            <div class="form-card-header">
+                                <h3 class="form-card-title">
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    Fechas
+                                </h3>
+                            </div>
+                            <div class="form-card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="fecha_inicio">
+                                            Fecha de Inicio
+                                            <span class="required">*</span>
+                                        </label>
+                                        <input 
+                                            type="datetime-local" 
+                                            class="form-control" 
+                                            id="fecha_inicio"
+                                            formControlName="fecha_inicio"
+                                        />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="fecha_fin">
+                                            Fecha de Finalización
+                                        </label>
+                                        <input 
+                                            type="datetime-local" 
+                                            class="form-control" 
+                                            id="fecha_fin"
+                                            formControlName="fecha_fin"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Columna Derecha -->
+                    <div class="col-lg-4">
+                        
+                        <!-- Configuración -->
+                        <div class="form-card sticky-card">
+                            <div class="form-card-header">
+                                <h3 class="form-card-title">
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    Configuración
+                                </h3>
+                            </div>
+                            <div class="form-card-body">
+                                
+                                <!-- Tipo -->
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        Tipo de Torneo
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="radio-group">
+                                        <label class="radio-option">
+                                            <input 
+                                                type="radio" 
+                                                formControlName="tipo" 
+                                                value="publico"
+                                                name="tipo"
+                                            />
+                                            <span class="radio-label">
+                                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                                Público
+                                            </span>
+                                        </label>
+                                        <label class="radio-option">
+                                            <input 
+                                                type="radio" 
+                                                formControlName="tipo" 
+                                                value="privado"
+                                                name="tipo"
+                                            />
+                                            <span class="radio-label">
+                                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                                </svg>
+                                                Privado
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Estado -->
+                                <div class="form-group">
+                                    <label class="form-label" for="estado">
+                                        Estado
+                                        <span class="required">*</span>
+                                    </label>
+                                    <select class="form-control" id="estado" formControlName="estado">
+                                        <option value="abierto">Abierto</option>
+                                        <option value="en_progreso">En Progreso</option>
+                                        <option value="finalizado">Finalizado</option>
+                                        <option value="cancelado">Cancelado</option>
+                                    </select>
+                                </div>
+
+                                <!-- Participantes -->
+                                <div class="form-group">
+                                    <label class="form-label" for="max_participantes">
+                                        Máximo de Participantes
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input 
+                                        type="number" 
+                                        class="form-control" 
+                                        id="max_participantes"
+                                        formControlName="max_participantes"
+                                        placeholder="Ej: 32"
+                                        min="2"
+                                    />
+                                </div>
+
+                                <!-- Participantes Actuales -->
+                                <div class="form-group" *ngIf="!isNew">
+                                    <label class="form-label" for="participantes_actuales">
+                                        Participantes Actuales
+                                    </label>
+                                    <input 
+                                        type="number" 
+                                        class="form-control" 
+                                        id="participantes_actuales"
+                                        formControlName="participantes_actuales"
+                                        readonly
+                                    />
+                                </div>
+
+                                <div class="divider"></div>
+
+                                <!-- Precios -->
+                                <div class="form-group">
+                                    <label class="form-label" for="precio_inscripcion">
+                                        Precio de Inscripción
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-addon">€</span>
+                                        <input 
+                                            type="number" 
+                                            class="form-control" 
+                                            id="precio_inscripcion"
+                                            formControlName="precio_inscripcion"
+                                            placeholder="0.00"
+                                            step="0.01"
+                                            min="0"
+                                        />
+                                    </div>
+                                    <small class="form-hint">Dejar en 0 para torneo gratuito</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="premio_total">
+                                        Premio Total
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-addon">€</span>
+                                        <input 
+                                            type="number" 
+                                            class="form-control" 
+                                            id="premio_total"
+                                            formControlName="premio_total"
+                                            placeholder="0.00"
+                                            step="0.01"
+                                            min="0"
+                                        />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+
+                </div>
+
+                <!-- Actions -->
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" [routerLink]="['/dashboard/home']">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn-submit" [disabled]="!modelForm.valid">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        {{ isNew ? 'Crear Torneo' : 'Guardar Cambios' }}
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+</div>

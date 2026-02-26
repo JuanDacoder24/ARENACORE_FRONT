@@ -14,7 +14,7 @@ export class ArenacoreService {
   //traer todos los juegos 
   async getAllGames(): Promise<any> {
     try {
-      const response = await this.httpClient.get(`${this.baseUrl}/games`).toPromise();
+      const response = await this.httpClient.get(`${this.baseUrl}/games`)
       return response;
     } catch (error) {
       console.error('Error al obtener los juegos:', error);
