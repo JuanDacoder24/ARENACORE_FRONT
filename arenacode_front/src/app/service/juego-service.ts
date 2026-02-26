@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { IJuego } from '../interfaces/ijuegos';
 
 @Injectable({
   providedIn: 'root',
@@ -9,18 +10,18 @@ export class JuegoService {
     throw new Error('Method not implemented.');
   }
   private httpClient = inject(HttpClient)
-  private apiUrl = 'http://localhost:8080/api/juegos';
+ private apiUrl = 'http://localhost:3000/api/juegos';
 
   //Obtener todos los juegos
-    async getAllJuegos() {
-    try {
-      const response = await this.httpClient.get(this.apiUrl).toPromise();
-      return response;
-    } catch (error) {
-      console.error('Error al obtener los juegos:', error);
-      throw error;
-    }
+   async getAllJuegos(): Promise<IJuego[]> {
+  try {
+    const response = await this.httpClient.get<IJuego[]>(this.apiUrl).toPromise();
+    return response ?? [];
+  } catch (error) {
+    console.error('Error al obtener los juegos:', error);
+    throw error;
   }
+}
   
   //Obtener un juego por su id
   async getJuegoById(id: number) {

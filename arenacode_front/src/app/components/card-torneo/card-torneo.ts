@@ -1,13 +1,15 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
+import { Component, Input, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { Torneo } from '../../models/torneo';
 
 @Component({
   selector: 'app-card-torneo',
-  standalone: true,
-  imports: [CommonModule, CurrencyPipe, DatePipe],
+  imports: [],
   templateUrl: './card-torneo.html',
-  styleUrls: ['./card-torneo.css']
+  styleUrl: './card-torneo.css',
 })
-export class CardTorneoComponent {
-  @Input() torneo: any;
+export class CardTorneo {
+  router = inject(Router)
+
+  @Input() torneo!: Torneo
 }

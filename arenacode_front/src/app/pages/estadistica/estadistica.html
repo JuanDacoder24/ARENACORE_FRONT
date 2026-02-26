@@ -1,0 +1,79 @@
+<div class="container my-5">
+
+  @if (cargando) {
+    <div class="text-center">
+      <div class="spinner-border text-primary" role="status"></div>
+      <p>Cargando estadísticas...</p>
+    </div>
+  }
+
+  @if (!cargando && estadisticas) {
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">{{ usuario.username }}</h2>
+      <span class="badge bg-primary fs-6">Nivel {{ estadisticas.nivel }}</span>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-center shadow-sm h-100">
+          <div class="card-body">
+            <h6 class="text-muted text-uppercase">Torneos Jugados</h6>
+            <h2 class="fw-bold text-primary">{{ estadisticas.torneos_jugados }}</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-center shadow-sm h-100">
+          <div class="card-body">
+            <h6 class="text-muted text-uppercase">Torneos Ganados</h6>
+            <h2 class="fw-bold text-success">{{ estadisticas.torneos_ganados }}</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-center shadow-sm h-100">
+          <div class="card-body">
+            <h6 class="text-muted text-uppercase">Partidas Jugadas</h6>
+            <h2 class="fw-bold text-primary">{{ estadisticas.partidas_jugadas }}</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-center shadow-sm h-100">
+          <div class="card-body">
+            <h6 class="text-muted text-uppercase">Partidas Ganadas</h6>
+            <h2 class="fw-bold text-success">{{ estadisticas.partidas_ganadas }}</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <div class="card text-center shadow-sm h-100">
+          <div class="card-body">
+            <h6 class="text-muted text-uppercase">Puntos Totales</h6>
+            <h2 class="fw-bold text-warning">{{ estadisticas.puntos_totales }}</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <div class="card text-center shadow-sm h-100">
+          <div class="card-body">
+            <h6 class="text-muted text-uppercase">Ranking Global</h6>
+            <h2 class="fw-bold text-danger"># {{ estadisticas.ranking_global ?? 'N/A' }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+  @if (!cargando && !estadisticas) {
+    <div class="text-center">
+      <p>No se pudieron cargar las estadísticas.</p>
+    </div>
+  }
+
+</div>

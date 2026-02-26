@@ -11,7 +11,7 @@ import { Faqs } from './pages/faqs/faqs';
 import { FormTorneo } from './pages/form-torneo/form-torneo';
 import { Info } from './pages/info/info';
 import { Home } from './pages/home/home';
-
+import { PageEstadisticas } from './pages/estadistica/estadistica';
 export const routes: Routes = [
     {path: '', pathMatch: 'full', redirectTo:'landingPage'},
     {path: 'landingPage', component: LanginPage},
@@ -27,9 +27,9 @@ export const routes: Routes = [
             {path: 'faqs', component: Faqs},
             {path: 'formTorneo', component: FormTorneo},
             {path: 'info', component: Info},
+            {path: 'estadisticas', component: PageEstadisticas}, // 👈
         ]
     },
     {path: 'error404', component: Error404},
     {path: '**', redirectTo: 'error404' }
-    
 ];

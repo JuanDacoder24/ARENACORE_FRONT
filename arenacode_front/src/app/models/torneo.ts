@@ -14,5 +14,4 @@ export interface Torneo {
   fecha_fin?: Date;
   reglas?: string;
   created_at?: Date;
-
 }

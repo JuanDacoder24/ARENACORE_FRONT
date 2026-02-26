@@ -28,8 +28,8 @@ export class UserService {
   }
 
   getEstadisticas(userId: number): Promise<any> {
-    return lastValueFrom(
-      this.httpClient.get<any>(`http://localhost:3000/api/estadisticas/${userId}`)
-    );
-  }
+  return lastValueFrom(
+    this.httpClient.get<any>(`http://localhost:3000/api/estadisticas/stats?userId=${userId}`)
+  );
+}
 }

@@ -8,7 +8,7 @@ import { Torneo } from '../models/torneo';
 })
 export class TorneoService {
 
-  private baseUrl : string = 'http://localhost:8080/api/torneos'
+private baseUrl : string = 'http://localhost:3000/api/torneos'
   private httpClient = inject(HttpClient)
 
   constructor() { }
