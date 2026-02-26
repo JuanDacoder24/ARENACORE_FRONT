@@ -19,7 +19,7 @@ export class TorneoService {
   }
 
   // obtener un torneo por id
-  getTorneo(id: number): Promise<Torneo> {
+  getTorneoById(id: number): Promise<Torneo> {
     return lastValueFrom(this.httpClient.get<Torneo>(`${this.baseUrl}/${id}`))
   }
 

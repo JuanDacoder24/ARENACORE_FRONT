@@ -10,6 +10,7 @@ import { PageTorneos } from './pages/page-torneos/page-torneos';
 import { Faqs } from './pages/faqs/faqs';
 import { FormTorneo } from './pages/form-torneo/form-torneo';
 import { Info } from './pages/info/info';
+import { Home } from './pages/home/home';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', redirectTo:'landingPage'},
@@ -18,7 +19,8 @@ export const routes: Routes = [
     {
         path: 'dashboard', component: Dashboard, canActivate:[authGuard], children:
         [
-            {path:'', pathMatch:'full', redirectTo:'landingPage'},
+            {path:'', pathMatch:'full', redirectTo:'home'},
+            {path: 'home', component: Home},
             {path: 'perfilUser', component: PerfilUser},
             {path: 'pageJuegos', component: PageJuegos},
             {path: 'pageTorneos', component: PageTorneos},
