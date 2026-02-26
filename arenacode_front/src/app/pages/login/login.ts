@@ -15,8 +15,8 @@ export class Login {
   private router = inject(Router);
   private userService = inject(UserService);
 
-  email = 'progamer01@arena.com';
-  password = 'password123';
+email = 'progamer01@arena.com';
+password = 'password123';
   errorMessage = '';
 
   constructor(){}
@@ -28,9 +28,9 @@ export class Login {
     this.errorMessage = '';
     try {
       const response = await this.userService.login({
-        email: this.email,
-        password: this.password
-      });
+  usernameOrEmail: this.email,
+  password: this.password
+});
 
       if (response && response.success) {
         localStorage.setItem('token', response.data.token);
