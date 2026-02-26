@@ -33,9 +33,9 @@ password = 'password123';
 });
 
       if (response && response.success) {
-        localStorage.setItem('token', response.data.token);
+  localStorage.setItem('accessToken', response.data.token); 
         localStorage.setItem('user', JSON.stringify(response.data.user));
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard/home']);
       }
     } catch (error: any) {
       this.errorMessage = error.error?.message || 'Error al conectar con el servidor';
@@ -45,14 +45,14 @@ password = 'password123';
       // Esto asegura que el usuario pueda ver la interfaz de estadísticas como solicitó.
       if (this.email === 'progamer01@arena.com' && this.password === 'password123') {
         console.warn('Backend inactivo. Autenticando localmente de forma simulada.');
-        localStorage.setItem('token', 'mock-token-12345');
+    localStorage.setItem('accessToken', 'mock-token-12345'); // ✅ cambio aquí
         localStorage.setItem('user', JSON.stringify({ 
           id: 1, 
           username: 'ProGamer01', 
           email: 'progamer01@arena.com',
           nombre: 'Carlos'
         }));
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard/home']);
       }
     }
   }
