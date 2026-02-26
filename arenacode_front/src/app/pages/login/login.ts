@@ -45,7 +45,7 @@ password = 'password123';
       // Esto asegura que el usuario pueda ver la interfaz de estadísticas como solicitó.
       if (this.email === 'progamer01@arena.com' && this.password === 'password123') {
         console.warn('Backend inactivo. Autenticando localmente de forma simulada.');
-    localStorage.setItem('accessToken', 'mock-token-12345'); // ✅ cambio aquí
+    localStorage.setItem('accessToken', 'mock-token-12345');
         localStorage.setItem('user', JSON.stringify({ 
           id: 1, 
           username: 'ProGamer01', 

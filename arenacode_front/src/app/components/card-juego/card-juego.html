@@ -9,11 +9,8 @@
                     <p class="card-text text-muted grow">{{juego.descripcion}}</p>
                     <h5 class="card-text">Categoria: {{juego.categoria}}</h5>
                     <div class="d-flex gap-2">
-                        <button class="btn btn-success flex-fill" (click)="editarJuego(juego)">
-                            Editar
-                        </button>
-                        <button class="btn btn-danger flex-fill" (click)="deleteJuego(juego.id)">
-                            Eliminar
+                        <button class="btn btn-primary mt-auto" (click)="router.navigate(['/juego', juego.id])">
+                            Ver Detalles
                         </button>
                     </div>
                 </div>
@@ -21,3 +18,5 @@
         </div>
     </div>
 </section>
+
+

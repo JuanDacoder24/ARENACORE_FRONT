@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -6,14 +6,9 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="card-juego">
-      <img [src]="juego?.imagen_url" [alt]="juego?.nombre" *ngIf="juego?.imagen_url">
-      <h3>{{ juego?.nombre }}</h3>
-      <p>{{ juego?.descripcion }}</p>
-      <span>{{ juego?.desarrollador }}</span>
-    </div>
+
   `
 })
 export class CardJuegoComponent {
-  @Input() juego: any;
-}
+
+    }

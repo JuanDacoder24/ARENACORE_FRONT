@@ -5,7 +5,6 @@ import { CardJuegoComponent } from '../../components/card-juego/card-juego';
 @Component({
   selector: 'app-page-juegos',
   standalone: true,
-  imports: [CommonModule, CardJuegoComponent],
   templateUrl: './page-juegos.html',
   styleUrl: './page-juegos.css',
 })
