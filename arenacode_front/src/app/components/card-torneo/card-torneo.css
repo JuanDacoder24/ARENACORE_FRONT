@@ -1,1 +1,103 @@
-/* Estilos específicos para card-torneo */
+.torneo-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.torneo-nombre {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #111;
+}
+
+.torneo-juego {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 2px 0 0;
+}
+
+.badge-publico {
+  background: #111;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.torneo-descripcion {
+  font-size: 0.88rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.torneo-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.info-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+}
+
+.info-value {
+  font-weight: 600;
+  color: #111;
+}
+
+.info-value.premio {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.btn-unirse {
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 4px;
+  transition: background 0.2s;
+}
+
+.btn-unirse:hover {
+  background: #333;
+}
+
+.organizador {
+  font-size: 0.82rem;
+  color: #9ca3af;
+  margin: 0;
+  text-align: left;
+}
+
+.organizador strong {
+  color: #374151;
+}

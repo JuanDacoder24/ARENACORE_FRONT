@@ -1,4 +1,9 @@
 export interface Torneo {
+organizador_nombre: any;
+premio: any;
+max_jugadores: any;
+jugadores_actuales: any;
+juego_nombre: any;
   id: number;
   nombre: string;
   descripcion?: string;
