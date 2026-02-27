@@ -27,7 +27,7 @@ export const routes: Routes = [
             {path: 'faqs', component: Faqs},
             {path: 'formTorneo', component: FormTorneo},
             {path: 'info', component: Info},
-            {path: 'estadisticas', component: PageEstadisticas}, // 👈
+            {path: 'estadisticas', component: PageEstadisticas}, 
         ]
     },
     {path: 'error404', component: Error404},

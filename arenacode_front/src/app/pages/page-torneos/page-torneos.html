@@ -1,29 +1,136 @@
-<div class="container my-5">
+<div class="torneos-wrapper">
+  <div class="container py-5">
 
-  <!-- Mientras carga -->
-  @if (cargando) {
-    <div class="text-center">
-      <div class="spinner-border text-primary" role="status"></div>
-      <p>Cargando torneos...</p>
-    </div>
-  }
-
-  <!-- Lista de torneos -->
-  @if (!cargando) {
-    <div class="row g-4">
-      @for (torneo of torneos; track torneo.id) {
-        <div class="col-12 col-md-6 col-lg-4">
-          <app-card-torneo [torneo]="torneo"></app-card-torneo>
+    <!-- Header -->
+    <div class="page-header">
+      <div class="header-content">
+        <h1 class="page-title">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Torneos
+        </h1>
+        <p class="page-subtitle">Encuentra y únete a torneos emocionantes</p>
+      </div>
+      
+      <!-- Actions Bar -->
+      <div class="header-actions">
+        <div class="search-box">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input 
+            type="text" 
+            class="search-input" 
+            placeholder="Buscar torneos..."
+            [(ngModel)]="searchTerm"
+            (input)="filtrarTorneos()"
+          />
         </div>
-      }
+        <button class="btn-create" routerLink="/dashboard/formTorneo">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+          </svg>
+          Crear Torneo
+        </button>
+      </div>
     </div>
-  }
 
-  <!-- Si no hay torneos -->
-  @if (!cargando && torneos.length === 0) {
-    <div class="text-center">
-      <p>No hay torneos disponibles</p>
+    <!-- Tabs Filter -->
+    <div class="tabs-filter">
+      <button 
+        class="tab-btn" 
+        [class.active]="filtroActivo === 'todos'"
+        (click)="cambiarFiltro('todos')"
+      >
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        Todos
+        <span class="tab-count" *ngIf="contadores">{{ contadores.todos }}</span>
+      </button>
+      <button 
+        class="tab-btn" 
+        [class.active]="filtroActivo === 'activos'"
+        (click)="cambiarFiltro('activos')"
+      >
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+        Activos
+        <span class="tab-count tab-count-active" *ngIf="contadores">{{ contadores.activos }}</span>
+      </button>
+      <button 
+        class="tab-btn" 
+        [class.active]="filtroActivo === 'progreso'"
+        (click)="cambiarFiltro('progreso')"
+      >
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        En Progreso
+        <span class="tab-count tab-count-progress" *ngIf="contadores">{{ contadores.progreso }}</span>
+      </button>
+      <button 
+        class="tab-btn" 
+        [class.active]="filtroActivo === 'finalizados'"
+        (click)="cambiarFiltro('finalizados')"
+      >
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+        Finalizados
+        <span class="tab-count" *ngIf="contadores">{{ contadores.finalizados }}</span>
+      </button>
     </div>
-  }
 
+    <!-- Loading State -->
+    @if (cargando) {
+      <div class="loading-state">
+        <div class="spinner">
+          <div class="spinner-border" role="status"></div>
+        </div>
+        <p class="loading-text">Cargando torneos...</p>
+      </div>
+    }
+
+    <!-- Torneos Grid -->
+    @if (!cargando && torneos.length > 0) {
+      <div class="torneos-grid">
+        @for (torneo of torneosFiltrados; track torneo.id) {
+          <app-card-torneo [torneo]="torneo"></app-card-torneo>
+        }
+      </div>
+    }
+
+    <!-- Empty State -->
+    @if (!cargando && torneos.length === 0) {
+      <div class="empty-state">
+        <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <h3 class="empty-title">No hay torneos disponibles</h3>
+        <p class="empty-description">Sé el primero en crear uno</p>
+        <button class="btn-create-empty" routerLink="/form-torneo">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+          </svg>
+          Crear Primer Torneo
+        </button>
+      </div>
+    }
+
+    <!-- No Results State -->
+    @if (!cargando && torneos.length > 0 && torneosFiltrados.length === 0) {
+      <div class="empty-state">
+        <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <h3 class="empty-title">No se encontraron resultados</h3>
+        <p class="empty-description">Intenta con otro filtro o término de búsqueda</p>
+        <button class="btn-clear" (click)="limpiarFiltros()">Limpiar filtros</button>
+      </div>
+    }
+
+  </div>
 </div>

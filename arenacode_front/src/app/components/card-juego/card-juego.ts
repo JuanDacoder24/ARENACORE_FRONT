@@ -12,4 +12,5 @@ export class CardJuego {
   router = inject(Router)  // público porque el HTML accede directo con router.navigate
 
   @Input() juego!: IJuego  // recibe los datos del juego desde el componente padre
+  @Input() vista: 'grid' | 'list' = 'grid'  // propiedad para cambiar vista
 }
