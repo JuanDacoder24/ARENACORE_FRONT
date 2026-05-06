@@ -1,8 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../service/user-service';
 import { CommonModule } from '@angular/common';
+import { IUser } from '../../interfaces/iuser';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -11,39 +13,54 @@ import { CommonModule } from '@angular/common';
   styleUrl: './login.css',
 })
 export class Login {
+
   private router = inject(Router);
   private userService = inject(UserService);
 
-  email = 'progamer01@arena.com';
-  password = 'password123';
-  errorMessage = '';
-
-  async getUser() {
-    this.errorMessage = '';
-    try {
-      const response = await this.userService.login({
-        usernameOrEmail: this.email,
-        password: this.password
-      });
-
-      if (response && response.success) {
-        localStorage.setItem('accessToken', response.data.token); 
-        localStorage.setItem('user', JSON.stringify(response.data.user));
-        this.router.navigate(['/dashboard/home']);
-      }
-    } catch (error: any) {
-      this.errorMessage = error.error?.message || 'Error al conectar con el servidor';
-
-      if (this.email === 'progamer01@arena.com' && this.password === 'password123') {
-        localStorage.setItem('accessToken', 'mock-token-12345');
-        localStorage.setItem('user', JSON.stringify({ 
-          id: 1, 
-          username: 'ProGamer01', 
-          email: 'progamer01@arena.com',
-          nombre: 'Carlos'
-        }));
-        this.router.navigate(['/dashboard/home']);
-      }
+  ngOnInit(): void {
+    if (localStorage.getItem('token')) {
+      this.router.navigate(['/dashboard'])
     }
   }
+
+  async getUser(loginForm: NgForm) {
+  const loginUser: IUser = loginForm.value as IUser
+  try {
+    let res = await this.userService.login(loginUser)
+    console.log("Respuesta del login:", res)
+
+    if (res.data?.token) {
+      this.userService.setAuthData(
+        res.data.token,
+        res.data.user.id,
+        res.data.user.nombre,
+        res.data.user.email
+      )
+            
+      this.router.navigate(['/dashboard'])
+      loginForm.reset()
+    } else if (res.token) {
+      this.userService.setAuthData(
+        res.token,
+        res.user.id,
+        res.user.nombre,
+        res.user.email
+      )
+      this.router.navigate(['/dashboard'])
+      loginForm.reset()
+    }
+
+  } catch (error) {
+    console.error("Error en login:", error)
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      background: '#0d2a4a',
+      color: 'white',
+      confirmButtonColor: '#27ae60',
+      text: "Credenciales incorrectas",
+    });
+    loginForm.reset();
+  }
+}
 }

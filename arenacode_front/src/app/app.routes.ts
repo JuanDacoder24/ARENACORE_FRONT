@@ -12,10 +12,13 @@ import { FormTorneo } from './pages/form-torneo/form-torneo';
 import { Info } from './pages/info/info';
 import { Home } from './pages/home/home';
 import { PageEstadisticas } from './pages/estadistica/estadistica';
+import { Register } from './pages/register/register';
+
 export const routes: Routes = [
     {path: '', pathMatch: 'full', redirectTo:'landingPage'},
     {path: 'landingPage', component: LanginPage},
     {path: 'login', component: Login},
+    {path: 'register', component: Register},
     {
         path: 'dashboard', component: Dashboard, canActivate:[authGuard], children:
         [
@@ -31,5 +34,6 @@ export const routes: Routes = [
         ]
     },
     {path: 'error404', component: Error404},
+    {path: 'register', component: Register},
     {path: '**', redirectTo: 'error404' }
 ];

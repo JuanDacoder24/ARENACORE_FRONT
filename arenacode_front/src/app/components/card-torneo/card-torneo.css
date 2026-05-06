@@ -65,7 +65,7 @@
 
 .info-value {
   font-weight: 600;
-  color: #111;
+  background: black
 }
 
 .info-value.premio {
@@ -73,23 +73,6 @@
   font-weight: 700;
 }
 
-.btn-unirse {
-  background: #111;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 12px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  width: 100%;
-  margin-top: 4px;
-  transition: background 0.2s;
-}
-
-.btn-unirse:hover {
-  background: #333;
-}
 
 .organizador {
   font-size: 0.82rem;
@@ -100,4 +83,25 @@
 
 .organizador strong {
   color: #374151;
+}
+
+.btn-create {
+    background: linear-gradient(90deg, #06BFFF 0%, #2a8fbd 100%);
+    border: none;
+    color: white;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(102, 192, 244, 0.3);
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.btn-create:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 192, 244, 0.5);
 }

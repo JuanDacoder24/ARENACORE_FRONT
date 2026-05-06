@@ -9,6 +9,7 @@ import { IJuego } from '../../interfaces/ijuegos';
   styleUrl: './card-juego.css',
 })
 export class CardJuego {
+  
   router = inject(Router)  // público porque el HTML accede directo con router.navigate
 
   @Input() juego!: IJuego  // recibe los datos del juego desde el componente padre
