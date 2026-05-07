@@ -7,7 +7,7 @@ export const authGuard: CanActivateFn = (route, state) => {
 
   let isAuth: boolean = false
 
-  if(localStorage.getItem('accessToken')){
+  if(localStorage.getItem('token')){
     isAuth = true 
   }
   else{

@@ -46,7 +46,9 @@ export class Login {
         res.user.nombre,
         res.user.email
       )
-      this.router.navigate(['/dashboard'])
+      console.log('Token guardado:', localStorage.getItem('token'))
+      await this.router.navigate(['/dashboard'])
+
       loginForm.reset()
     }
 

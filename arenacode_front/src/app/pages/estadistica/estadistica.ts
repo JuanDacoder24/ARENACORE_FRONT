@@ -26,7 +26,7 @@ export class PageEstadisticas implements OnInit {
  async cargarEstadisticas() {
   try {
     const response = await this.userService.getEstadisticas(this.usuario.id);
-    this.estadisticas = response.data;  // 👈 asegúrate de que tiene .data
+    this.estadisticas = response.data;  
   } catch (error) {
     console.error('Error al cargar estadísticas:', error);
   } finally {
