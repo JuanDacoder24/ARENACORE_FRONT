@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './estadistica.css',
 })
 export class PageEstadisticas implements OnInit {
+  
   private userService = inject(UserService);
 
   usuario: any = null;
@@ -19,18 +20,29 @@ export class PageEstadisticas implements OnInit {
     const userStr = localStorage.getItem('user');
     if (userStr) {
       this.usuario = JSON.parse(userStr);
+    } else {
+      this.usuario = {
+        id: Number(localStorage.getItem('id')) || 0,
+        nombre: localStorage.getItem('nombre') || '',
+        email: localStorage.getItem('email') || ''
+      };
+    }
+    if (this.usuario.id) {
       await this.cargarEstadisticas();
+    } else {
+      this.cargando = false;
     }
   }
 
- async cargarEstadisticas() {
-  try {
-    const response = await this.userService.getEstadisticas(this.usuario.id);
-    this.estadisticas = response.data;  
-  } catch (error) {
-    console.error('Error al cargar estadísticas:', error);
-  } finally {
-    this.cargando = false;
+  async cargarEstadisticas() {
+    try {
+      const response = await this.userService.getEstadisticas(this.usuario.id);
+      this.estadisticas = response.data || response; // Soporta ambas formas
+    } catch (error) {
+      console.error('Error al cargar estadísticas:', error);
+      this.estadisticas = null;
+    } finally {
+      this.cargando = false;
+    }
   }
-}
 }

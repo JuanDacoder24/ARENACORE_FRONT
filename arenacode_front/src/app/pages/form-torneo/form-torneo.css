@@ -6,8 +6,7 @@
    1. WRAPPER
    =================================== */
 .form-wrapper {
-    background: #f8f9fa;
-    min-height: 100vh;
+background: linear-gradient(180deg, #1b2838 0%, #171a21 100%);     min-height: 100vh;
 }
 
 /* ===================================

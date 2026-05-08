@@ -36,7 +36,7 @@ export class Register {
                 confirmButtonColor: '#27ae60',
                 text: 'Cuenta creada exitosamente'
             })
-            this.router.navigate(['/dashboard']) 
+            this.router.navigate(['/dashboard'])
         } catch (error) {
             Swal.fire({
                 icon: 'error',

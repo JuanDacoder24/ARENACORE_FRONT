@@ -14,8 +14,7 @@
    2. HEADER SECTION
    =================================== */
 .faqs-header {
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-    padding: 4rem 0 3rem;
+background: linear-gradient(180deg, #1b2838 0%, #171a21 100%);     padding: 4rem 0 3rem;
     border-bottom: 1px solid #e9ecef;
 }
 
@@ -49,8 +48,7 @@
    3. CONTENT SECTION
    =================================== */
 .faqs-content {
-    background: #ffffff;
-}
+background: linear-gradient(180deg, #1b2838 0%, #171a21 100%); }
 
 /* ===================================
    4. CATEGORÍAS
