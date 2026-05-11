@@ -1,0 +1,56 @@
+<div class="admin-container">
+  @if (!cargando) {
+    <div class="admin-header">
+      <h1>Gestión de Ganador: {{ torneo?.nombre }}</h1>
+      <span class="badge-premio"> Pozo: {{ torneo?.premio_total }} monedas</span>
+    </div>
+
+    <div class="admin-grid">
+      <div class="players-card">
+        <h3>Jugadores Inscritos ({{ participantes.length }})</h3>
+        
+        <div class="player-list">
+          @for (p of participantes; track p.id) {
+            <div class="player-item">
+              <div class="player-info">
+                <div class="avatar">{{ p.username[0] }}</div>
+                <div>
+                  <p class="p-name">{{ p.username }}</p>
+                  <p class="p-level">Nivel {{ p.nivel }}</p>
+                </div>
+              </div>
+              <button (click)="elegirGanador(p.id, p.username)" class="btn-winner">
+                 Elegir Ganador
+              </button>
+            </div>
+          }
+        </div>
+
+        @if (participantes.length > 0) {
+          <div class="winner-note">
+            Selecciona el jugador que ganó el torneo. Esto finalizará el torneo y entregará el premio.
+          </div>
+        } @else if (participantes.length === 0) {
+          <div class="empty-state">
+            Aún no hay jugadores inscritos en este torneo.
+          </div>
+        }
+      </div>
+
+      <div class="summary-card">
+        <h3>Resumen del Cierre</h3>
+        <p>Al elegir un ganador, ocurrirá lo siguiente:</p>
+        <ul>
+          <li>El torneo pasará a estado <strong>Finalizado</strong>.</li>
+          <li>Se sumarán <strong>{{ torneo?.premio_total }}</strong> monedas a la billetera del usuario.</li>
+          <li>Esta acción no se puede deshacer.</li>
+        </ul>
+        <div class="warning-box">
+           Asegúrate de que el resultado sea el correcto según las reglas del juego.
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="loader">Cargando gestión del torneo...</div>
+  }
+</div>

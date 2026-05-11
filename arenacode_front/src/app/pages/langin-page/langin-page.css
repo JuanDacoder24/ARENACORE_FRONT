@@ -1,11 +1,4 @@
-/* ===================================
-   LANDING PAGE - STEAM BONITO Y LIMPIO
-   Espaciado, bordes redondeados, moderno
-   =================================== */
 
-/* ===================================
-   1. VARIABLES
-   =================================== */
 :root {
     --steam-dark: #1b2838;
     --steam-darker: #16202d;
@@ -15,17 +8,11 @@
     --steam-text-muted: #b8b6b4;
 }
 
-/* ===================================
-   2. BASE
-   =================================== */
 body {
-    background: #1b2838;
+background: linear-gradient(180deg, #1b2838 0%, #171a21 100%); 
     color: #ffffff;
 }
 
-/* ===================================
-   3. HERO SECTION - LIMPIO Y ESPACIADO
-   =================================== */
 .hero-section {
     background: linear-gradient(135deg, #ffffff 0%);
     padding: 6rem 0;

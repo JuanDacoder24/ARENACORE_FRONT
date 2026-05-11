@@ -13,6 +13,7 @@ import { Info } from './pages/info/info';
 import { Home } from './pages/home/home';
 import { PageEstadisticas } from './pages/estadistica/estadistica';
 import { Register } from './pages/register/register';
+import { AdminTorneo } from './pages/admin-torneo/admin-torneo';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', redirectTo:'landingPage'},
@@ -31,6 +32,7 @@ export const routes: Routes = [
             {path: 'formTorneo', component: FormTorneo},
             {path: 'info', component: Info},
             {path: 'estadisticas', component: PageEstadisticas}, 
+            {path: 'torneo/:id/admin', component: AdminTorneo},
         ]
     },
     {path: 'error404', component: Error404},

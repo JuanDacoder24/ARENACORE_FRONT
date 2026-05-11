@@ -67,7 +67,7 @@ export class FormTorneo {
         });
       }
     }
-    this.router.navigate(['/torneos'])
+    this.router.navigate(['/dashboard/pageTorneos'])
     this.modelForm.reset()
   }
 
@@ -97,7 +97,7 @@ export class FormTorneo {
               text: 'No se pudo encontrar el torneo',
               icon: 'error'
             });
-            this.router.navigate(['/torneos'])
+            this.router.navigate(['/dashboard/pageTorneos'])
           }
         } catch (error) {
           Swal.fire({
@@ -106,12 +106,37 @@ export class FormTorneo {
             icon: 'error'
           });
         }
-        this.router.navigate(['/torneos'])
+        this.router.navigate(['/dashboard/pageTorneos'])
       } else {
         this.isNew = true
         this.torneoId = null
       }
     });
   }
+
+  async crearTorneo() {
+    if (this.modelForm.invalid) return;
+
+    const valores = this.modelForm.value;
+
+    const payload: any = {
+      ...valores,
+      juego_id: Number(valores.juego_id),
+      organizador_id: Number(valores.organizador_id),
+      max_participantes: Number(valores.max_participantes),
+      precio_inscripcion: Number(valores.precio_inscripcion) || 0,
+      premio_total: Number(valores.premio_total) || 0,
+      fecha_inicio: new Date(valores.fecha_inicio).toISOString(),
+      fecha_fin: valores.fecha_fin ? new Date(valores.fecha_fin).toISOString() : null
+    };
+
+    try {
+      const res = await this.servicioTorneo.crearTorneo(payload);
+      console.log('Torneo creado con éxito!', res);
+    } catch (err: any) {
+      console.error('Error al crear el torneo:', err);
+    }
+  }
+
 }
 

@@ -15,12 +15,7 @@
                         <p class="form-subtitle">{{ isNew ? 'Completa la información para crear tu torneo' : 'Modifica los detalles del torneo' }}</p>
                     </div>
                 </div>
-                <div class="form-badge">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    {{ isNew ? 'Nuevo' : 'Editando' }}
-                </div>
+                
             </div>
         </div>
     </section>
@@ -321,7 +316,7 @@
                         </svg>
                         Cancelar
                     </button>
-                    <button type="submit" class="btn-submit" [disabled]="!modelForm.valid">
+                    <button type="submit" class="btn-submit" [disabled]="!modelForm.valid" >
                         <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                         </svg>

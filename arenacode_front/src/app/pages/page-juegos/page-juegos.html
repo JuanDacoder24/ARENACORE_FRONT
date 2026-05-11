@@ -1,7 +1,6 @@
 <div class="juegos-wrapper">
   <div class="container py-5">
 
-    <!-- Header -->
     <div class="page-header">
       <div class="header-content">
         <h1 class="page-title">
@@ -13,7 +12,6 @@
         <p class="page-subtitle">Explora todos los juegos en los que puedes competir</p>
       </div>
       
-      <!-- Search and Filter -->
       <div class="header-actions">
         <div class="search-box">
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -43,7 +41,6 @@
       </div>
     </div>
 
-    <!-- Error State -->
     @if (error()) {
       <div class="alert alert-danger m-3">
         {{ error() }}
@@ -53,54 +50,45 @@
       </div>
     }
 
-    <!-- Loading State -->
     @if (cargando()) {
       <div class="loading-state">
-        <div class="spinner">
-          <div class="spinner-border" role="status"></div>
-        </div>
+        <div class="spinner-border" role="status"></div>
         <p class="loading-text">Cargando juegos...</p>
       </div>
-    }
-
-    <!-- Games Grid -->
-    @if (!cargando() && juegos().length > 0 && juegosFiltrados().length > 0) {
-      <div class="games-grid">
-        @for (juego of juegosFiltrados(); track juego.id) {
-          <app-card-juego [juego]="juego" />
+    } @else {
+      @if (juegos().length === 0) {
+        <!-- Estado: No hay juegos en la base de datos -->
+        <div class="empty-state">
+          <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+          </svg>
+          <h3 class="empty-title">No hay juegos disponibles</h3>
+          <p class="empty-description">Vuelve más tarde para ver nuevos juegos</p>
+        </div>
+      } @else if (juegosFiltrados().length > 0) {
+        <!-- Estado: Juegos encontrados -->
+        <div class="games-grid">
+          @for (juego of juegosFiltrados(); track juego.id) {
+            <app-card-juego [juego]="juego" />
+          }
+        </div>
+        
+        @if (juegos().length !== juegosFiltrados().length) {
+          <div class="stats-info text-muted mt-3 text-center">
+            Mostrando {{ juegosFiltrados().length }} de {{ juegos().length }} juegos
+          </div>
         }
-      </div>
-      
-      <!-- Stats -->
-      @if (stats().total !== stats().mostrados) {
-        <div class="stats-info text-muted mt-3 text-center">
-          Mostrando {{ stats().mostrados }} de {{ stats().total }} juegos
+      } @else {
+        <!-- Estado: Búsqueda sin resultados -->
+        <div class="empty-state">
+          <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <h3 class="empty-title">No se encontraron resultados</h3>
+          <p class="empty-description">Intenta con otro término o categoría</p>
+          <button class="btn btn-primary mt-3" (click)="limpiarBusqueda()">Limpiar filtros</button>
         </div>
       }
     }
-
-    <!-- Empty State - No hay juegos disponibles -->
-    @if (!cargando() && juegos().length === 0) {
-      <div class="empty-state">
-        <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-        </svg>
-        <h3 class="empty-title">No hay juegos disponibles</h3>
-        <p class="empty-description">Vuelve más tarde para ver nuevos juegos</p>
-      </div>
-    }
-
-    <!-- No Results State - Búsqueda sin resultados -->
-    @if (!cargando() && juegos().length > 0 && juegosFiltrados().length === 0) {
-      <div class="empty-state">
-        <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
-        <h3 class="empty-title">No se encontraron resultados</h3>
-        <p class="empty-description">Intenta con otro término de búsqueda o categoría</p>
-        <button class="btn-clear" (click)="limpiarBusqueda()">Limpiar filtros</button>
-      </div>
-    }
-
   </div>
 </div>

@@ -47,7 +47,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
         Todos
-        <span class="tab-count" *ngIf="contadores">{{ contadores.todos }}</span>
+        <span class="tab-count">{{ contadores.todos }}</span>
       </button>
       <button 
         class="tab-btn" 
@@ -58,7 +58,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
         Activos
-        <span class="tab-count tab-count-active" *ngIf="contadores">{{ contadores.activos }}</span>
+        <span class="tab-count tab-count-active">{{ contadores.activos }}</span>
       </button>
       <button 
         class="tab-btn" 
@@ -69,7 +69,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
         En Progreso
-        <span class="tab-count tab-count-progress" *ngIf="contadores">{{ contadores.progreso }}</span>
+        <span class="tab-count tab-count-progress">{{ contadores.progreso }}</span>
       </button>
       <button 
         class="tab-btn" 
@@ -80,7 +80,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
         </svg>
         Finalizados
-        <span class="tab-count" *ngIf="contadores">{{ contadores.finalizados }}</span>
+        <span class="tab-count">{{ contadores.finalizados }}</span>
       </button>
     </div>
 
