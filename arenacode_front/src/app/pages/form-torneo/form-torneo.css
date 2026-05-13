@@ -1,460 +1,206 @@
-/* ===================================
-   FORM TORNEO - STEAM STYLE
-   =================================== */
-
-/* ===================================
-   1. WRAPPER
-   =================================== */
+/* Contenedor Principal */
 .form-wrapper {
-background: linear-gradient(180deg, #1b2838 0%, #171a21 100%);     min-height: 100vh;
+  background-color: #1b2838; /* Fondo Steam */
+  min-height: 100vh;
+  color: #c7d5e0;
 }
 
-/* ===================================
-   2. HEADER
-   =================================== */
+/* Header del Formulario */
 .form-header {
-    background: #ffffff;
-    border-bottom: 2px solid #e9ecef;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background: rgba(22, 32, 45, 0.9);
+  border-bottom: 1px solid rgba(102, 192, 244, 0.2);
 }
 
 .btn-back {
-    background: #f8f9fa;
-    border: 2px solid #e9ecef;
-    color: #2a475e;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
+  background: rgba(102, 192, 244, 0.1);
+  border: 1px solid rgba(102, 192, 244, 0.3);
+  color: #66c0f4;
+  padding: 10px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
 
 .btn-back:hover {
-    background: #66c0f4;
-    border-color: #66c0f4;
-    color: white;
-    transform: translateX(-3px);
+  background: #66c0f4;
+  color: #ffffff;
 }
 
 .form-title {
-    color: #2a475e;
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin: 0;
+  color: #ffffff;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
 }
 
 .form-subtitle {
-    color: #6c757d;
-    font-size: 0.95rem;
-    margin: 0.25rem 0 0 0;
+  color: #8f98a0;
+  margin: 0;
 }
 
-.form-badge {
-    background: linear-gradient(135deg, #66c0f4 0%, #2a8fbd 100%);
-    color: white;
-    padding: 0.5rem 1.25rem;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    box-shadow: 0 4px 15px rgba(102, 192, 244, 0.3);
-}
-
-/* ===================================
-   3. CONTENT
-   =================================== */
-.form-content {
-    padding: 2rem 0;
-}
-
-/* ===================================
-   4. FORM CARDS
-   =================================== */
+/* Tarjetas del Formulario (Cards) */
 .form-card {
-    background: #ffffff;
-    border: 2px solid #e9ecef;
-    border-radius: 16px;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-}
-
-.form-card:hover {
-    border-color: #66c0f4;
-    box-shadow: 0 4px 20px rgba(102, 192, 244, 0.1);
+  background: #16202d;
+  border-radius: 15px; /* Tu estándar de 15px */
+  border: 1px solid rgba(42, 71, 94, 0.6);
+  margin-bottom: 24px;
+  overflow: hidden;
 }
 
 .form-card-header {
-    padding: 1.5rem;
-    border-bottom: 2px solid #f8f9fa;
+  padding: 20px 25px;
+  border-bottom: 1px solid rgba(42, 71, 94, 0.6);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .form-card-title {
-    color: #2a475e;
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.form-card-title svg {
-    color: #66c0f4;
-    flex-shrink: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #66c0f4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
 }
 
 .form-card-body {
-    padding: 1.5rem;
+  padding: 25px;
 }
 
-/* Sticky Card */
-.sticky-card {
-    position: sticky;
-    top: 20px;
-}
-
-/* ===================================
-   5. FORM GROUPS
-   =================================== */
+/* Estilo de Inputs y Controles */
 .form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group:last-child {
-    margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 .form-label {
-    color: #2a475e;
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    display: block;
+  display: block;
+  color: #ffffff;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
 }
 
 .required {
-    color: #dc3545;
-    margin-left: 0.25rem;
+  color: #ff4b4b;
+  margin-left: 4px;
 }
 
 .form-control {
-    background: #f8f9fa;
-    border: 2px solid #e9ecef;
-    color: #2a475e;
-    padding: 0.75rem 1rem;
-    font-size: 0.95rem;
-    border-radius: 10px;
-    width: 100%;
-    transition: all 0.3s ease;
+  background-color: #0d121a !important;
+  border: 1px solid #2a475e !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  padding: 12px 15px;
+  transition: all 0.3s ease;
 }
 
 .form-control:focus {
-    background: #ffffff;
-    border-color: #66c0f4;
-    box-shadow: 0 0 0 3px rgba(102, 192, 244, 0.1);
-    outline: none;
-    color: #2a475e;
-}
-
-.form-control::placeholder {
-    color: #adb5bd;
-}
-
-textarea.form-control {
-    resize: vertical;
-    min-height: 100px;
-}
-
-select.form-control {
-    cursor: pointer;
+  border-color: #66c0f4 !important;
+  box-shadow: 0 0 8px rgba(102, 192, 244, 0.3) !important;
+  outline: none;
 }
 
 .form-hint {
-    color: #6c757d;
-    font-size: 0.85rem;
-    margin-top: 0.5rem;
-    display: block;
+  color: #67707b;
+  font-size: 0.8rem;
+  margin-top: 6px;
+  display: block;
 }
 
-/* ===================================
-   6. INPUT GROUP (PRECIO)
-   =================================== */
-.input-group {
-    display: flex;
-    align-items: stretch;
-}
-
-.input-addon {
-    background: #e9ecef;
-    border: 2px solid #e9ecef;
-    border-right: none;
-    color: #6c757d;
-    padding: 0.75rem 1rem;
-    font-weight: 600;
-    border-radius: 10px 0 0 10px;
-    display: flex;
-    align-items: center;
-}
-
-.input-group .form-control {
-    border-radius: 0 10px 10px 0;
-    border-left: none;
-}
-
-.input-group .form-control:focus {
-    border-left: 2px solid #66c0f4;
-}
-
-/* ===================================
-   7. RADIO GROUP
-   =================================== */
+/* Radio Group Estilo Botón */
 .radio-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 .radio-option {
-    background: #f8f9fa;
-    border: 2px solid #e9ecef;
-    border-radius: 10px;
-    padding: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+  cursor: pointer;
+  position: relative;
 }
 
-.radio-option:hover {
-    background: #ffffff;
-    border-color: #66c0f4;
-}
-
-.radio-option input[type="radio"] {
-    width: 20px;
-    height: 20px;
-    accent-color: #66c0f4;
-    cursor: pointer;
-}
-
-.radio-option input[type="radio"]:checked + .radio-label {
-    color: #66c0f4;
-    font-weight: 600;
+.radio-option input {
+  display: none;
 }
 
 .radio-label {
-    color: #2a475e;
-    font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: #0d121a;
+  border: 1px solid #2a475e;
+  border-radius: 8px;
+  color: #8f98a0;
+  transition: all 0.2s;
 }
 
-.radio-label svg {
-    flex-shrink: 0;
+.radio-option input:checked + .radio-label {
+  border-color: #66c0f4;
+  background: rgba(102, 192, 244, 0.1);
+  color: #66c0f4;
 }
 
-/* ===================================
-   8. DIVIDER
-   =================================== */
+/* Sticky Card (Columna derecha) */
+.sticky-card {
+  position: sticky;
+  top: 20px;
+}
+
 .divider {
-    height: 2px;
-    background: linear-gradient(90deg, transparent 0%, #e9ecef 50%, transparent 100%);
-    margin: 1.5rem 0;
+  height: 1px;
+  background: rgba(42, 71, 94, 0.6);
+  margin: 25px 0;
 }
 
-/* ===================================
-   9. INFO CARD
-   =================================== */
-.info-card {
-    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-    border: 2px solid #90caf9;
-    border-radius: 12px;
-    padding: 1.25rem;
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.info-card svg {
-    color: #1976d2;
-    flex-shrink: 0;
-}
-
-.info-title {
-    color: #1565c0;
-    font-size: 1rem;
-    font-weight: 700;
-    margin: 0 0 0.5rem 0;
-}
-
-.info-text {
-    color: #1976d2;
-    font-size: 0.9rem;
-    margin: 0;
-    line-height: 1.5;
-}
-
-/* ===================================
-   10. FORM ACTIONS
-   =================================== */
+/* Acciones Finales */
 .form-actions {
-    background: #ffffff;
-    border: 2px solid #e9ecef;
-    border-radius: 16px;
-    padding: 1.5rem;
-    margin-top: 2rem;
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(42, 71, 94, 0.6);
+  margin-top: 20px;
 }
 
 .btn-cancel {
-    background: transparent;
-    border: 2px solid #e9ecef;
-    color: #6c757d;
-    padding: 0.875rem 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 10px;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
+  background: transparent;
+  border: 1px solid #4e5a66;
+  color: #c7d5e0;
+  padding: 12px 25px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  transition: all 0.3s;
 }
 
 .btn-cancel:hover {
-    background: #f8f9fa;
-    border-color: #dc3545;
-    color: #dc3545;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #ffffff;
 }
 
 .btn-submit {
-    background: linear-gradient(90deg, #06BFFF 0%, #2a8fbd 100%);
-    border: none;
-    color: white;
-    padding: 0.875rem 2.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(102, 192, 244, 0.3);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
+  background: linear-gradient(90deg, #66c0f4 0%, #2a8fbd 100%);
+  border: none;
+  color: #ffffff;
+  padding: 12px 30px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-submit:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 192, 244, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 192, 244, 0.4);
 }
 
 .btn-submit:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-/* ===================================
-   11. VALIDATION STYLES
-   =================================== */
-.form-control.ng-invalid.ng-touched {
-    border-color: #dc3545;
-}
-
-.form-control.ng-valid.ng-touched {
-    border-color: #28a745;
-}
-
-/* ===================================
-   12. RESPONSIVE
-   =================================== */
-@media (max-width: 991px) {
-    .form-title {
-        font-size: 1.5rem;
-    }
-    
-    .form-badge {
-        font-size: 0.8rem;
-        padding: 0.4rem 1rem;
-    }
-    
-    .sticky-card {
-        position: static;
-    }
-    
-    .form-actions {
-        flex-direction: column;
-    }
-    
-    .btn-cancel,
-    .btn-submit {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 767px) {
-    .form-header .d-flex {
-        flex-direction: column;
-        align-items: flex-start !important;
-        gap: 1rem;
-    }
-    
-    .btn-back {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .form-title {
-        font-size: 1.25rem;
-    }
-    
-    .form-subtitle {
-        font-size: 0.85rem;
-    }
-    
-    .form-badge {
-        align-self: flex-start;
-    }
-    
-    .form-card-body {
-        padding: 1rem;
-    }
-}
-
-/* ===================================
-   13. UTILITIES
-   =================================== */
-::selection {
-    background: #66c0f4;
-    color: white;
-}
-
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f8f9fa;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #dee2e6;
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #66c0f4;
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
 }

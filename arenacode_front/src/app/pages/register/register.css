@@ -1,62 +1,173 @@
-.register-wrapper {
+.auth-wrapper {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0d2a4a 0%, #1b2838 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  background: radial-gradient(circle at top right, #1b2838 0%, #0d121a 100%);
 }
-.register-form {
-  background: #16202d;
-  padding: 2.5rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+
+/* Esferas decorativas con el nuevo color de marca */
+.background-decor .sphere {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.sphere-1 {
+  top: -10%;
+  right: -5%;
+  width: 400px;
+  height: 400px;
+  background: rgba(102, 192, 244, 0.15);
+}
+
+.sphere-2 {
+  bottom: -10%;
+  left: -5%;
+  width: 300px;
+  height: 300px;
+  background: rgba(42, 71, 94, 0.2);
+}
+
+/* La Tarjeta */
+.auth-card {
+  background: rgba(27, 40, 56, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(102, 192, 244, 0.1);
+  border-radius: 20px;
+  padding: 2.5rem;
   width: 100%;
-  max-width: 400px;
-  color: #fff;
+  max-width: 540px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
-.register-form h2 {
+
+.auth-icon-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #66c0f4, #1a7abb);
+  border-radius: 16px;
   margin-bottom: 1.5rem;
+  box-shadow: 0 8px 20px rgba(102, 192, 244, 0.3);
+}
+
+.auth-title {
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.auth-subtitle {
   color: #66c0f4;
-  text-align: center;
+  font-weight: 500;
 }
-.form-group {
-  margin-bottom: 1.2rem;
-}
-.form-group label {
-  display: block;
+
+/* Inputs y Etiquetas */
+.form-label-custom {
+  color: #8f98a0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #c7d5e0;
 }
-.form-group input {
-  width: 100%;
-  padding: 0.7rem;
-  border-radius: 6px;
-  border: 1px solid #22304a;
-  background: #22304a;
-  color: #fff;
-  font-size: 1rem;
+
+.form-label-custom span { color: #66c0f4; }
+
+.form-input-custom {
+  background: #0d121a !important;
+  border: 1.5px solid #2a475e !important;
+  color: #fff !important;
+  border-radius: 10px !important;
+  padding: 0.8rem 1rem !important;
+  transition: all 0.3s ease;
 }
-.btn-register {
+
+.form-input-custom:focus {
+  border-color: #66c0f4 !important;
+  box-shadow: 0 0 0 4px rgba(102, 192, 244, 0.15) !important;
+  outline: none;
+}
+
+.input-group-custom { position: relative; }
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #66c0f4;
+  z-index: 2;
+}
+
+/* Botón Submit */
+.btn-auth-submit {
   width: 100%;
-  padding: 0.8rem;
-  background: linear-gradient(90deg, #06BFFF 0%, #2671be 100%);
+  padding: 1rem;
+  background: linear-gradient(90deg, #47bfff 0%, #1a7abb 100%);
   border: none;
-  border-radius: 6px;
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.1rem;
+  color: white;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
   margin-top: 1rem;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(26, 122, 187, 0.3);
 }
-.btn-register:hover {
-  background: linear-gradient(90deg, #2671be 0%, #06BFFF 100%);
+
+.btn-auth-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(26, 122, 187, 0.5);
+  filter: brightness(1.1);
 }
-.login-link {
-  margin-top: 1.5rem;
+
+.btn-auth-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+.auth-footer {
   text-align: center;
+  margin-top: 1.5rem;
   color: #8f98a0;
 }
-.login-link a {
+
+.auth-footer a {
   color: #66c0f4;
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.auth-footer a:hover { text-decoration: underline; }
+
+.ps-5-custom {
+  padding-left: 3rem !important; 
+}
+
+/* Estilo para los iconos dentro del input */
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #66c0f4;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  pointer-events: none; 
+}
+
+select.form-input-custom option {
+  background-color: #1b2838;
+  color: white;
 }

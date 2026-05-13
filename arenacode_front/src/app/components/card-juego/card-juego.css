@@ -1,1 +1,111 @@
-/* Estilos específicos para card-juego */
+.game-card-v2 {
+  background: #1b2838; /* Fondo Steam */
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+}
+
+.game-card-v2:hover {
+  transform: translateY(-8px);
+  border-color: #66c0f4;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Manejo de Imagen */
+.game-image-container {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.game-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.game-card-v2:hover .game-img {
+  transform: scale(1.1);
+}
+
+/* El degradado que hace que se vea pro */
+.game-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to top, #1b2838 10%, transparent 100%);
+}
+
+.game-category-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #66c0f4;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(102, 192, 244, 0.3);
+}
+
+/* Contenido Inferior */
+.game-content-v2 {
+  padding: 15px;
+  background: #1b2838;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.game-title-v2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.game-desc-v2 {
+  font-size: 0.85rem;
+  color: #acb2b8; /* Gris azulado tipo Steam */
+  margin: 0;
+  line-height: 1.4;
+  height: 40px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Botón que aparece al hacer hover (opcional) */
+.btn-game-details {
+  margin-top: 10px;
+  background: rgba(102, 192, 244, 0.1);
+  border: 1px solid #66c0f4;
+  color: #66c0f4;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0; /* Oculto por defecto */
+  transition: all 0.3s ease;
+}
+
+.game-card-v2:hover .btn-game-details {
+  opacity: 1;
+  background: #66c0f4;
+  color: #ffffff;
+}

@@ -18,7 +18,7 @@
             </svg>
             Nivel {{ estadisticas.nivel }}
           </span>
-          <span class="stat-badge stat-badge-success" *ngIf="estadisticas?.torneos_jugados > 0">
+          <span class="stat-badge stat-badge-success" >
             {{ ((estadisticas.torneos_ganados / estadisticas.torneos_jugados) * 100).toFixed(1) }}% Win Rate
           </span>
         </div>

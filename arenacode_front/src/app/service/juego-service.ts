@@ -6,11 +6,9 @@ import { IJuego } from '../interfaces/ijuegos';
   providedIn: 'root',
 })
 export class JuegoService {
-  deleteById(id: string) {
-    throw new Error('Method not implemented.');
-  }
+
   private httpClient = inject(HttpClient)
- private apiUrl = 'http://localhost:3000/api/juegos';
+  private apiUrl = 'http://localhost:3000/api/juegos';
 
   //Obtener todos los juegos
    async getAllJuegos(): Promise<IJuego[]> {
@@ -64,5 +62,14 @@ export class JuegoService {
     } 
   }
 
+  async getAllCategorias(): Promise<any[]> {
+    try {
+      const response = await this.httpClient.get<any[]>('http://localhost:3000/api/categorias').toPromise();
+      return response ?? [];
+    } catch (error) {
+      console.error('Error al obtener las categorías:', error);
+      throw error;
+    }
+  }
 
 }

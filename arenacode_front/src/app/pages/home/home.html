@@ -9,7 +9,7 @@
           <p class="dashboard-subtitle">Bienvenido de nuevo, gestiona tus torneos desde aquí</p>
         </div>
         <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
-          <button class="btn-create-tournament" routerLink="/dashboard/formTorneo">
+          <button class="btn-create" routerLink="/dashboard/formTorneo">
             <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
             </svg>
@@ -29,7 +29,8 @@
           <div class="stat-card stat-card-blue">
             <div class="stat-icon">
               <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             <div class="stat-content">
@@ -43,7 +44,8 @@
           <div class="stat-card stat-card-green">
             <div class="stat-icon">
               <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
             <div class="stat-content">
@@ -58,7 +60,8 @@
           <div class="stat-card stat-card-purple">
             <div class="stat-icon">
               <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             <div class="stat-content">
@@ -73,7 +76,8 @@
           <div class="stat-card stat-card-orange">
             <div class="stat-icon">
               <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             <div class="stat-content">
@@ -101,7 +105,8 @@
             <div class="content-card-header d-flex justify-content-between align-items-center">
               <h2 class="content-card-title mb-0">
                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6H10.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6H10.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
                 </svg>
                 Torneos Activos
               </h2>
@@ -110,34 +115,37 @@
             <div class="content-card-body">
 
               @if (cargando) {
-                <div class="loading-state">
-                  <div class="spinner-border spinner-border-sm me-2"></div>
-                  Cargando torneos...
-                </div>
+              <div class="loading-state">
+                <div class="spinner-border spinner-border-sm me-2"></div>
+                Cargando torneos...
+              </div>
               } @else if (torneosPublicos.length === 0) {
-                <div class="empty-state">
-                  No hay torneos públicos disponibles ahora mismo.
-                </div>
+              <div class="empty-state">
+                No hay torneos públicos disponibles ahora mismo.
+              </div>
               } @else {
-                @for (torneo of torneosPublicos; track torneo.id) {
-                  <div class="torneo-row">
-                    <div class="torneo-row-info">
-                      <span class="torneo-row-nombre">{{ torneo.nombre }}</span>
-                      <div class="torneo-row-meta">
-                        <span class="badge-tipo" [class.badge-publico]="torneo.tipo === 'publico'" [class.badge-privado]="torneo.tipo === 'privado'">
-                          {{ torneo.tipo | titlecase }}
-                        </span>
-                        <div class="torneo-row-jugadores">
-                          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-                          </svg>
-                          <span>{{ torneo.participantes_actuales ?? 0 }}/{{ torneo.max_participantes }}</span>
-                        </div>
-                      </div>
+              @for (torneo of torneosPublicos; track torneo.id) {
+              <div class="torneo-row">
+                <div class="torneo-row-info">
+                  <span class="torneo-row-nombre">{{ torneo.nombre }}</span>
+                  <div class="torneo-row-meta">
+                    <span class="badge-tipo" [class.badge-publico]="torneo.tipo === 'publico'"
+                      [class.badge-privado]="torneo.tipo === 'privado'">
+                      {{ torneo.tipo | titlecase }}
+                    </span>
+                    <div class="torneo-row-jugadores">
+                      <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      <span>{{ torneo.participantes_actuales ?? 0 }}/{{ torneo.max_participantes }}</span>
                     </div>
-                    <button class="btn-ver" [routerLink]="['/dashboard/torneos', torneo.id]">Ver</button>
                   </div>
-                }
+                </div>
+                <button class="btn-ver" [routerLink]="['/dashboard/pageTorneos']">Ver</button>
+              </div>
+              }
               }
 
               <a routerLink="/dashboard/pageTorneos" class="ver-todos-link">
@@ -151,7 +159,8 @@
             <div class="content-card-header d-flex justify-content-between align-items-center">
               <h2 class="content-card-title mb-0">
                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
                 Mis Torneos
               </h2>
@@ -160,32 +169,32 @@
             <div class="content-card-body">
 
               @if (cargando) {
-                <div class="loading-state">
-                  <div class="spinner-border spinner-border-sm me-2"></div>
-                  Cargando...
-                </div>
+              <div class="loading-state">
+                <div class="spinner-border spinner-border-sm me-2"></div>
+                Cargando...
+              </div>
               } @else if (misInscripciones.length === 0) {
-                <div class="empty-state">
-                  <p class="mb-2">Aún no te has inscrito en ningún torneo.</p>
-                  <a routerLink="/dashboard/pageTorneos" class="ver-todos-link" style="display: inline-block;">Explorar torneos →</a>
-                </div>
+              <div class="empty-state">
+                <p class="mb-2">Aún no te has inscrito en ningún torneo.</p>
+                <a routerLink="/dashboard/pageTorneos" class="ver-todos-link" style="display: inline-block;">Explorar
+                  torneos →</a>
+              </div>
               } @else {
-                @for (torneo of misInscripciones; track torneo.id) {
-                  <div class="torneo-row">
-                    <div class="torneo-row-info">
-                      <span class="torneo-row-nombre">{{ torneo.nombre }}</span>
-                      <div class="torneo-row-meta">
-                        <span class="badge-estado"
-                          [class.badge-abierto]="torneo.estado === 'abierto'"
-                          [class.badge-progreso]="torneo.estado === 'en_progreso'"
-                          [class.badge-finalizado]="torneo.estado === 'finalizado'">
-                          {{ torneo.estado | titlecase }}
-                        </span>
-                      </div>
-                    </div>
-                    <button class="btn-ver" [routerLink]="['/dashboard/torneos', torneo.id]">Ver</button>
+              @for (torneo of misInscripciones; track torneo.id) {
+              <div class="torneo-row">
+                <div class="torneo-row-info">
+                  <span class="torneo-row-nombre">{{ torneo.nombre }}</span>
+                  <div class="torneo-row-meta">
+                    <span class="badge-estado" [class.badge-abierto]="torneo.estado === 'abierto'"
+                      [class.badge-progreso]="torneo.estado === 'en_progreso'"
+                      [class.badge-finalizado]="torneo.estado === 'finalizado'">
+                      {{ torneo.estado | titlecase }}
+                    </span>
                   </div>
-                }
+                </div>
+                <button class="btn-ver" [routerLink]="['/dashboard/pageTorneos']">Ver</button>
+              </div>
+              }
               }
 
             </div>
@@ -216,19 +225,22 @@
                 </button>
                 <button class="quick-action-btn">
                   <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                   <span>Gestionar Equipos</span>
                 </button>
                 <button class="quick-action-btn" routerLink="/dashboard/estadisticas">
                   <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                   <span>Ver Estadísticas</span>
                 </button>
                 <button class="quick-action-btn">
                   <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                   <span>Configuración</span>
@@ -242,7 +254,8 @@
             <div class="content-card-header">
               <h2 class="content-card-title">
                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Actividad Reciente
               </h2>

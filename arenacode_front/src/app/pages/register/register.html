@@ -1,222 +1,110 @@
-<div class="min-vh-100 d-flex align-items-center justify-content-center position-relative overflow-hidden px-3 py-5"
-     style="background: linear-gradient(135deg, #0a1f35 0%, #0d2a4a 50%, #0a3d1f 100%);">
-
-  <!-- Fondo decorativo -->
-  <div class="position-absolute w-100 h-100" style="top:0;left:0;pointer-events:none;overflow:hidden;">
-    <div style="position:absolute;top:-80px;right:-80px;width:350px;height:350px;border-radius:50%;
-                background:radial-gradient(circle,rgba(39,174,96,0.12),transparent 70%);"></div>
-    <div style="position:absolute;bottom:-60px;left:-60px;width:280px;height:280px;border-radius:50%;
-                background:radial-gradient(circle,rgba(39,174,96,0.08),transparent 70%);"></div>
+<div class="auth-wrapper">
+  <div class="background-decor">
+    <div class="sphere sphere-1"></div>
+    <div class="sphere sphere-2"></div>
   </div>
 
-  <div style="background:rgba(13,42,74,0.85);backdrop-filter:blur(16px);border:1px solid rgba(39,174,96,0.2);
-              border-radius:20px;padding:2.5rem;width:100%;max-width:560px;box-shadow:0 24px 64px rgba(0,0,0,0.5);
-              position:relative;z-index:1;">
-
-    <!-- Header -->
+  <div class="auth-card">
     <div class="text-center mb-4">
-      <div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;
-                  background:linear-gradient(135deg,#27ae60,#1a7a43);border-radius:14px;margin-bottom:1rem;
-                  box-shadow:0 8px 24px rgba(39,174,96,0.35);">
+      <div class="auth-icon-container">
         <svg width="28" height="28" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
         </svg>
       </div>
-      <h2 class="fw-bold mb-1" style="color:#ffffff;font-size:1.75rem;letter-spacing:-0.5px;">Crear cuenta</h2>
-      <p class="mb-0" style="color:#27ae60;font-size:0.9rem;">Únete a la arena de torneos</p>
+      <h2 class="auth-title">Crear cuenta</h2>
+      <p class="auth-subtitle">Únete a la arena de torneos</p>
     </div>
 
     <form #registerForm="ngForm" (ngSubmit)="registerUser(registerForm)" autocomplete="off">
-
-      <!-- Fila 1: Nombre + Apellido -->
+      <!-- Nombre y Apellido -->
       <div class="row g-3 mb-3">
         <div class="col-6">
-          <label class="form-label fw-semibold mb-1" style="color:#c7d5e0;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.5px;">
-            Nombre <span style="color:#27ae60;">*</span>
-          </label>
-          <input
-            type="text"
-            name="nombre"
-            placeholder="Juan"
-            class="form-control"
-            style="background:#0a1f35;border:1.5px solid #2a475e;color:#e8edf2;border-radius:10px;padding:0.75rem 1rem;font-size:0.95rem;transition:all 0.2s;"
-            ngModel
-            required
-            onfocus="this.style.borderColor='#27ae60';this.style.boxShadow='0 0 0 3px rgba(39,174,96,0.15)'"
-            onblur="this.style.borderColor='#2a475e';this.style.boxShadow='none'"
-          />
+          <label class="form-label-custom">Nombre <span>*</span></label>
+          <input type="text" name="nombre" placeholder="Juan" class="form-input-custom" ngModel required />
         </div>
         <div class="col-6">
-          <label class="form-label fw-semibold mb-1" style="color:#c7d5e0;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.5px;">
-            Apellido <span style="color:#27ae60;">*</span>
-          </label>
-          <input
-            type="text"
-            name="apellido"
-            placeholder="García"
-            class="form-control"
-            style="background:#0a1f35;border:1.5px solid #2a475e;color:#e8edf2;border-radius:10px;padding:0.75rem 1rem;font-size:0.95rem;transition:all 0.2s;"
-            ngModel
-            required
-            onfocus="this.style.borderColor='#27ae60';this.style.boxShadow='0 0 0 3px rgba(39,174,96,0.15)'"
-            onblur="this.style.borderColor='#2a475e';this.style.boxShadow='none'"
-          />
+          <label class="form-label-custom">Apellido <span>*</span></label>
+          <input type="text" name="apellido" placeholder="García" class="form-input-custom" ngModel required />
         </div>
       </div>
 
-      <!-- Username -->
+      <!-- Username con espaciado extra -->
       <div class="mb-3">
-        <label class="form-label fw-semibold mb-1" style="color:#c7d5e0;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.5px;">
-          Nombre de usuario <span style="color:#27ae60;">*</span>
-        </label>
-        <div class="position-relative">
-          <span class="position-absolute top-50 translate-middle-y ms-3" style="color:#27ae60;pointer-events:none;">@</span>
-          <input
-            type="text"
-            name="username"
-            placeholder="jugador123"
-            class="form-control ps-5"
-            style="background:#0a1f35;border:1.5px solid #2a475e;color:#e8edf2;border-radius:10px;padding:0.75rem 1rem 0.75rem 2.5rem;font-size:0.95rem;transition:all 0.2s;"
-            ngModel
-            required
-            minlength="3"
-            onfocus="this.style.borderColor='#27ae60';this.style.boxShadow='0 0 0 3px rgba(39,174,96,0.15)'"
-            onblur="this.style.borderColor='#2a475e';this.style.boxShadow='none'"
-          />
+        <label class="form-label-custom">Nombre de usuario <span>*</span></label>
+        <div class="input-group-custom">
+          <span class="input-icon">@</span>
+          <input type="text" name="username" placeholder="jugador123" class="form-input-custom ps-5-custom" ngModel required minlength="3" />
         </div>
       </div>
 
-      <!-- Email -->
+      <!-- Email con espaciado extra -->
       <div class="mb-3">
-        <label class="form-label fw-semibold mb-1" style="color:#c7d5e0;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.5px;">
-          Email <span style="color:#27ae60;">*</span>
-        </label>
-        <div class="position-relative">
-          <span class="position-absolute top-50 translate-middle-y ms-3" style="color:#27ae60;pointer-events:none;">
+        <label class="form-label-custom">Email <span>*</span></label>
+        <div class="input-group-custom">
+          <span class="input-icon">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
           </span>
-          <input
-            type="email"
-            name="email"
-            placeholder="tu@email.com"
-            class="form-control ps-5"
-            style="background:#0a1f35;border:1.5px solid #2a475e;color:#e8edf2;border-radius:10px;padding:0.75rem 1rem 0.75rem 2.75rem;font-size:0.95rem;transition:all 0.2s;"
-            ngModel
-            required
-            email
-            onfocus="this.style.borderColor='#27ae60';this.style.boxShadow='0 0 0 3px rgba(39,174,96,0.15)'"
-            onblur="this.style.borderColor='#2a475e';this.style.boxShadow='none'"
-          />
+          <input type="email" name="email" placeholder="tu@email.com" class="form-input-custom ps-5-custom" ngModel required email />
         </div>
       </div>
 
-      <!-- Contraseña -->
+      <!-- Password con espaciado extra -->
       <div class="mb-3">
-        <label class="form-label fw-semibold mb-1" style="color:#c7d5e0;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.5px;">
-          Contraseña <span style="color:#27ae60;">*</span>
-        </label>
-        <div class="position-relative">
-          <span class="position-absolute top-50 translate-middle-y ms-3" style="color:#27ae60;pointer-events:none;">
+        <label class="form-label-custom">Contraseña <span>*</span></label>
+        <div class="input-group-custom">
+          <span class="input-icon">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
             </svg>
           </span>
-          <input
-            type="password"
-            name="password"
-            placeholder="Mín. 8 caracteres, una mayúscula"
-            class="form-control ps-5"
-            style="background:#0a1f35;border:1.5px solid #2a475e;color:#e8edf2;border-radius:10px;padding:0.75rem 1rem 0.75rem 2.75rem;font-size:0.95rem;transition:all 0.2s;"
-            ngModel
-            required
-            minlength="8"
-            onfocus="this.style.borderColor='#27ae60';this.style.boxShadow='0 0 0 3px rgba(39,174,96,0.15)'"
-            onblur="this.style.borderColor='#2a475e';this.style.boxShadow='none'"
-          />
+          <input type="password" name="password" placeholder="••••••••" class="form-input-custom ps-5-custom" ngModel required minlength="8" />
         </div>
-        <p class="mt-1 mb-0" style="color:#8f98a0;font-size:0.78rem;">Mínimo 8 caracteres y una letra mayúscula</p>
       </div>
 
-      <!-- Fila 2: País + Avatar URL -->
+      <!-- País (Recuperados) y Avatar -->
       <div class="row g-3 mb-4">
         <div class="col-5">
-          <label class="form-label fw-semibold mb-1" style="color:#c7d5e0;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.5px;">
-            País
-          </label>
-          <select
-            name="pais"
-            class="form-select"
-            style="background:#0a1f35;border:1.5px solid #2a475e;color:#e8edf2;border-radius:10px;padding:0.75rem 1rem;font-size:0.95rem;transition:all 0.2s;"
-            ngModel
-            onfocus="this.style.borderColor='#27ae60';this.style.boxShadow='0 0 0 3px rgba(39,174,96,0.15)'"
-            onblur="this.style.borderColor='#2a475e';this.style.boxShadow='none'"
-          >
-            <option value="" style="background:#0a1f35;">Selecciona...</option>
-            <option value="Argentina" style="background:#0a1f35;">Argentina</option>
-            <option value="Bolivia" style="background:#0a1f35;">Bolivia</option>
-            <option value="Chile" style="background:#0a1f35;">Chile</option>
-            <option value="Colombia" style="background:#0a1f35;">Colombia</option>
-            <option value="Costa Rica" style="background:#0a1f35;">Costa Rica</option>
-            <option value="Cuba" style="background:#0a1f35;">Cuba</option>
-            <option value="Ecuador" style="background:#0a1f35;">Ecuador</option>
-            <option value="El Salvador" style="background:#0a1f35;">El Salvador</option>
-            <option value="España" style="background:#0a1f35;">España</option>
-            <option value="Guatemala" style="background:#0a1f35;">Guatemala</option>
-            <option value="Honduras" style="background:#0a1f35;">Honduras</option>
-            <option value="México" style="background:#0a1f35;">México</option>
-            <option value="Nicaragua" style="background:#0a1f35;">Nicaragua</option>
-            <option value="Panamá" style="background:#0a1f35;">Panamá</option>
-            <option value="Paraguay" style="background:#0a1f35;">Paraguay</option>
-            <option value="Perú" style="background:#0a1f35;">Perú</option>
-            <option value="Puerto Rico" style="background:#0a1f35;">Puerto Rico</option>
-            <option value="República Dominicana" style="background:#0a1f35;">Rep. Dominicana</option>
-            <option value="Uruguay" style="background:#0a1f35;">Uruguay</option>
-            <option value="Venezuela" style="background:#0a1f35;">Venezuela</option>
-            <option value="Otro" style="background:#0a1f35;">Otro</option>
+          <label class="form-label-custom">País</label>
+          <select name="pais" class="form-input-custom" ngModel>
+            <option value="">Selecciona...</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Bolivia">Bolivia</option>
+            <option value="Chile">Chile</option>
+            <option value="Colombia">Colombia</option>
+            <option value="Costa Rica">Costa Rica</option>
+            <option value="Cuba">Cuba</option>
+            <option value="Ecuador">Ecuador</option>
+            <option value="El Salvador">El Salvador</option>
+            <option value="España">España</option>
+            <option value="Guatemala">Guatemala</option>
+            <option value="Honduras">Honduras</option>
+            <option value="México">México</option>
+            <option value="Nicaragua">Nicaragua</option>
+            <option value="Panamá">Panamá</option>
+            <option value="Paraguay">Paraguay</option>
+            <option value="Perú">Perú</option>
+            <option value="Puerto Rico">Puerto Rico</option>
+            <option value="República Dominicana">Rep. Dominicana</option>
+            <option value="Uruguay">Uruguay</option>
+            <option value="Venezuela">Venezuela</option>
+            <option value="Otro">Otro</option>
           </select>
         </div>
         <div class="col-7">
-          <label class="form-label fw-semibold mb-1" style="color:#c7d5e0;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.5px;">
-            URL de avatar
-          </label>
-          <input
-            type="url"
-            name="avatar_url"
-            placeholder="https://..."
-            class="form-control"
-            style="background:#0a1f35;border:1.5px solid #2a475e;color:#e8edf2;border-radius:10px;padding:0.75rem 1rem;font-size:0.95rem;transition:all 0.2s;"
-            ngModel
-            onfocus="this.style.borderColor='#27ae60';this.style.boxShadow='0 0 0 3px rgba(39,174,96,0.15)'"
-            onblur="this.style.borderColor='#2a475e';this.style.boxShadow='none'"
-          />
+          <label class="form-label-custom">URL de avatar</label>
+          <input type="url" name="avatar_url" placeholder="https://..." class="form-input-custom" ngModel />
         </div>
       </div>
 
-      <!-- Botón registrar -->
-      <button
-        type="submit"
-        [disabled]="registerForm.invalid"
-        class="btn w-100 fw-semibold mb-3"
-        style="background:linear-gradient(100deg,#1a7a43,#27ae60);border:none;color:white;
-               padding:0.9rem;border-radius:12px;font-size:1rem;letter-spacing:0.3px;
-               box-shadow:0 8px 24px rgba(39,174,96,0.35);transition:all 0.3s ease;"
-        onmouseover="if(!this.disabled){this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 32px rgba(39,174,96,0.5)'}"
-        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 24px rgba(39,174,96,0.35)'"
-      >
+      <button type="submit" [disabled]="registerForm.invalid" class="btn-auth-submit">
         Crear cuenta
       </button>
 
-      <p class="text-center mb-0" style="color:#8f98a0;font-size:0.9rem;">
-        ¿Ya tienes cuenta?
-        <a [routerLink]="['/login']" style="color:#27ae60;text-decoration:none;font-weight:600;">
-          Inicia sesión
-        </a>
+      <p class="auth-footer">
+        ¿Ya tienes cuenta? <a [routerLink]="['/login']">Inicia sesión</a>
       </p>
-
     </form>
   </div>
 </div>

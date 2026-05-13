@@ -5,5 +5,5 @@ export interface IJuego {
   nombre: string        
   descripcion: string
   imagen_url: string   
-  categoria_id: ICategoria  
+  categoria_id: number  
 }

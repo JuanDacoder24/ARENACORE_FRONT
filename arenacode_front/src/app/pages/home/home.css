@@ -1,171 +1,157 @@
-/* Torneos rows */
-.torneo-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid #f0f0f0;
+/* Contenedor Principal con el fondo oscuro de Steam */
+.dashboard-wrapper {
+  background-color: #1b2838;
+  color: #c7d5e0;
+  min-height: 100vh;
+  padding-bottom: 2rem;
 }
-.torneo-row:last-of-type { border-bottom: none; }
 
-.torneo-row-info { display: flex; flex-direction: column; gap: 4px; }
-.torneo-row-nombre { font-weight: 600; font-size: 0.95rem; color: #1a1a2e; }
-.torneo-row-meta { display: flex; align-items: center; gap: 8px; }
-.torneo-row-jugadores { display: flex; align-items: center; gap: 4px; font-size: 0.8rem; color: #666; }
+/* Header con bordes redondeados inferiores */
+.dashboard-header {
+  background: linear-gradient(180deg, #171a21 0%, #1b2838 100%);
+  border-bottom: 1px solid #2a475e;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin-bottom: 2rem;
+}
 
-/* Badges */
-.badge-count { font-size: 0.8rem; color: #666; background: #f0f0f0; padding: 2px 10px; border-radius: 20px; }
-.badge-tipo, .badge-estado { font-size: 0.72rem; padding: 2px 8px; border-radius: 20px; font-weight: 500; }
-.badge-publico  { background: #e0f2fe; color: #0369a1; }
-.badge-privado  { background: #fce7f3; color: #9d174d; }
-.badge-abierto  { background: #dcfce7; color: #166534; }
-.badge-progreso { background: #fef9c3; color: #854d0e; }
-.badge-finalizado { background: #f3f4f6; color: #374151; }
+.dashboard-title {
+  color: #ffffff;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
-/* Botón ver */
-.btn-ver {
-  padding: 6px 16px;
-  background: #1a1a2e;
-  color: white;
+.dashboard-subtitle {
+  color: #66c0f4;
+}
+
+/* Tarjetas de Estadísticas (Stats) */
+.stat-card {
+  background: #16202d;
+  border-radius: 15px; /* Redondeado solicitado */
+  padding: 20px;
+  border: 1px solid rgba(102, 192, 244, 0.2);
+  transition: transform 0.3s ease, background 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  background: #1c2e42;
+}
+
+.stat-number { color: #ffffff; font-weight: 700; }
+.stat-label { color: #8f98a0; font-size: 0.8rem; text-transform: uppercase; }
+
+/* BOTONES: Ahora con tu degradado azul y redondeados */
+.btn-create, .btn-ver, .btn-action, .btn-manage, .btn-join {
+  background: linear-gradient(135deg, #66c0f4 0%, #2a8fbd 100%);
+  color: #ffffff !important;
   border: none;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: background 0.2s;
-  white-space: nowrap;
+  border-radius: 10px; /* Redondeado solicitado */
+  padding: 10px 20px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 10px rgba(42, 143, 189, 0.3);
 }
-.btn-ver:hover { background: #16213e; }
 
-/* Ver todos link */
-.ver-todos-link {
-  display: block;
-  text-align: center;
-  margin-top: 12px;
-  color: #3b82f6;
-  font-size: 0.85rem;
-  text-decoration: none;
+.btn-create:hover, .btn-ver:hover {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(42, 143, 189, 0.4);
 }
-.ver-todos-link:hover { text-decoration: underline; }
 
-/* Estados vacío/cargando */
-.empty-state, .loading-state { text-align: center; padding: 20px 0; color: #999; font-size: 0.9rem; }
-
-/* Cards del dashboard */
+/* Tarjetas de Contenido Redondeadas */
 .content-card {
-  background: #ffffff;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
+  background: rgba(22, 32, 45, 0.9);
+  border-radius: 15px; /* Redondeado solicitado */
+  border: 1px solid rgba(42, 71, 94, 0.6);
+  margin-bottom: 20px;
+  overflow: hidden; /* Importante para que el header no tape las esquinas */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .content-card-header {
-  padding: 16px 20px;
-  border-bottom: 1px solid #f0f0f0;
-  background: #fafafa;
+  background: #2a475e;
+  padding: 15px 20px;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .content-card-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1a1a2e;
-  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .content-card-body {
-  padding: 8px 20px 16px;
+  padding: 20px;
 }
 
-/* Stats Cards */
-.stat-card {
-  background: white;
-  border-radius: 16px;
-  padding: 1.5rem;
+/* Filas de Torneos */
+.torneo-row {
+  background: rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  padding: 15px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  border: 1px solid #e5e7eb;
-  transition: transform 0.2s;
+  border-radius: 12px; /* Redondeado interno */
+  transition: all 0.2s ease;
 }
-.stat-card:hover { transform: translateY(-2px); }
 
-.stat-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.torneo-row:hover {
+  background: rgba(102, 192, 244, 0.1);
+  transform: translateX(5px);
 }
-.stat-card-blue .stat-icon { background: #e0f2fe; color: #0284c7; }
-.stat-card-green .stat-icon { background: #dcfce7; color: #16a34a; }
-.stat-card-purple .stat-icon { background: #f3e8ff; color: #9333ea; }
-.stat-card-orange .stat-icon { background: #ffedd5; color: #ea580c; }
 
-.stat-number { font-size: 1.75rem; font-weight: 700; color: #1a1a2e; margin-bottom: 0.25rem; }
-.stat-label { font-size: 0.85rem; color: #666; margin-bottom: 0; }
-.stat-badge { font-size: 0.7rem; padding: 2px 8px; border-radius: 20px; font-weight: 500; }
-.stat-badge-up { background: #dcfce7; color: #166534; }
-.stat-badge-neutral { background: #f3f4f6; color: #374151; }
-
-/* Dashboard Header */
-.dashboard-title { font-size: 1.75rem; font-weight: 700; color: #1a1a2e; margin-bottom: 0.5rem; }
-.dashboard-subtitle { color: #666; font-size: 0.95rem; margin: 0; }
-
-.btn-create-tournament {
-  background: #6366f1;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  color: white;
+.torneo-row-nombre {
+  color: #ebebeb;
   font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
 }
-.btn-create-tournament:hover { background: #4f46e5; }
 
-/* Quick Actions */
-.quick-actions { display: flex; flex-direction: column; gap: 8px; }
+/* Acciones Rápidas (Botones laterales) */
 .quick-action-btn {
+  background: #3d4450;
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  text-align: left;
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 12px;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-size: 0.9rem;
-  color: #374151;
-  width: 100%;
+  border-radius: 10px; /* Redondeado */
+  transition: all 0.2s ease;
 }
-.quick-action-btn:hover { background: #f3f4f6; border-color: #6366f1; }
 
-/* Activity List */
-.activity-list { display: flex; flex-direction: column; gap: 16px; }
-.activity-item { display: flex; gap: 12px; align-items: flex-start; }
-.activity-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 6px; }
-.activity-dot-blue { background: #3b82f6; }
-.activity-dot-green { background: #10b981; }
-.activity-dot-purple { background: #8b5cf6; }
-.activity-dot-orange { background: #f59e0b; }
-.activity-content { flex: 1; }
-.activity-text { font-size: 0.85rem; color: #374151; margin-bottom: 4px; }
-.activity-time { font-size: 0.7rem; color: #999; }
-
-/* Responsive */
-@media (max-width: 768px) {
-  .stat-card { padding: 1rem; }
-  .stat-number { font-size: 1.25rem; }
-  .content-card-header { padding: 12px 16px; }
-  .content-card-body { padding: 8px 16px 12px; }
-  .dashboard-title { font-size: 1.5rem; }
+.quick-action-btn:hover {
+  background: #66c0f4;
+  color: #171a21;
 }
+
+/* Estilos de Badges */
+.badge-count {
+  background: rgba(0, 0, 0, 0.3);
+  color: #66c0f4;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  border-radius: 20px;
+}
+
+.activity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 6px;
+}
+
+.activity-dot-blue { background-color: #66c0f4; }
+.activity-dot-green { background-color: #a3cf06; }

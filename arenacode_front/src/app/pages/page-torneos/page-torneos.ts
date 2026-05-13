@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { TorneoService } from '../../service/torneo-service';
-import { Torneo } from '../../models/torneo';  // ← usa el modelo, no la interfaz
+import { Torneo } from '../../models/torneo';  
 import { CardTorneo } from '../../components/card-torneo/card-torneo';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';

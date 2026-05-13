@@ -8,67 +8,75 @@ import { CardJuego } from '../../components/card-juego/card-juego';
 @Component({
   selector: 'app-page-juegos',
   standalone: true,
-  // En Angular 19, si usas @if y @for, CommonModule es opcional
   imports: [CardJuego, FormsModule],
   templateUrl: './page-juegos.html',
   styleUrl: './page-juegos.css',
 })
 export class PageJuegos implements OnInit {
+
   private readonly juegoService = inject(JuegoService);
-  
-  // Signals de estado privado
+
   private readonly _juegos = signal<IJuego[]>([]);
-  
+
   // Signals públicos o accesibles
   readonly searchTerm = signal<string>('');
   readonly categoriaIdSeleccionada = signal<number | null>(null);
   readonly cargando = signal<boolean>(true);
   readonly error = signal<string | null>(null);
 
-  // Getter para acceder a juegos desde el HTML si fuera necesario (opcional)
   readonly juegos = computed(() => this._juegos());
 
-  // Extraer categorías únicas de los juegos cargados
-  readonly categorias = computed<ICategoria[]>(() => {
-    const juegosActuales = this._juegos();
-    const categoriasMap = new Map<number, ICategoria>();
-    
-    juegosActuales.forEach(juego => {
-      if (juego.categoria_id) {
-        categoriasMap.set(juego.categoria_id.id, juego.categoria_id);
-      }
-    });
-    
-    return Array.from(categoriasMap.values());
-  });
+  private readonly _categoriasDeServicio = signal<ICategoria[]>([]);
+  readonly categorias = computed(() => this._categoriasDeServicio());
 
-  // Lógica de filtrado reactiva
+  async cargarDatos() {
+    this.cargando.set(true);
+    try {
+      const [juegos, cats] = await Promise.all([
+        this.juegoService.getAllJuegos(),
+        this.juegoService.getAllCategorias()
+      ]);
+      this._juegos.set(juegos);
+      this._categoriasDeServicio.set(cats);
+    } catch (err) {
+      this.error.set('Error al conectar con el servidor.');
+    } finally {
+      this.cargando.set(false);
+    }
+  }
+
   readonly juegosFiltrados = computed(() => {
     const termino = this.searchTerm().toLowerCase().trim();
     const categoriaId = this.categoriaIdSeleccionada();
-    
+
     return this._juegos().filter(juego => {
-      const cumpleCategoria = !categoriaId || juego.categoria_id?.id === categoriaId;
-      
-      const cumpleBusqueda = !termino || 
+      const cumpleCategoria = !categoriaId || juego.categoria_id === categoriaId;
+      const nombreCat = this.getNombreCategoria(juego.categoria_id).toLowerCase();
+
+      const cumpleBusqueda = !termino ||
         juego.nombre.toLowerCase().includes(termino) ||
         juego.descripcion?.toLowerCase().includes(termino) ||
-        juego.categoria_id?.nombre.toLowerCase().includes(termino);
-      
+        nombreCat.includes(termino);
+
       return cumpleCategoria && cumpleBusqueda;
     });
   });
 
+  getNombreCategoria(id: number | ICategoria): string {
+    const idBusqueda = typeof id === 'object' ? id.id : Number(id);
+    const cat = this._categoriasDeServicio().find(c => c.id === idBusqueda);
+    return cat ? cat.nombre : '';
+  }
+
   ngOnInit(): void {
-    this.cargarJuegos();
+    this.cargarDatos();
   }
 
   async cargarJuegos() {
     this.cargando.set(true);
-    this.error.set(null);
-    
     try {
       const data = await this.juegoService.getAllJuegos();
+      console.log('DATOS DEL BACKEND:', data);
       this._juegos.set(data);
     } catch (err) {
       this.error.set('Error al conectar con el servidor.');
@@ -81,9 +89,8 @@ export class PageJuegos implements OnInit {
     this.searchTerm.set(termino);
   }
 
-  filtrarPorCategoria(value: string) {
-    const id = value === 'null' ? null : Number(value);
-    this.categoriaIdSeleccionada.set(id);
+  filtrarPorCategoria(value: any) {
+    this.categoriaIdSeleccionada.set(value ? Number(value) : null);
   }
 
   limpiarBusqueda() {

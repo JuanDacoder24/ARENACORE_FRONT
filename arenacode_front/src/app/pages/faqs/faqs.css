@@ -1,351 +1,165 @@
-/* ===================================
-   FAQs PAGE - STEAM STYLE
-   =================================== */
-
-/* ===================================
-   1. WRAPPER
-   =================================== */
+/* Contenedor Principal */
 .faqs-wrapper {
-    background: #ffffff;
-    min-height: 100vh;
+  background-color: #1b2838; 
+  color: #c7d5e0;
+  font-family: 'Motiva Sans', Sans-serif, Arial;
 }
 
-/* ===================================
-   2. HEADER SECTION
-   =================================== */
-.faqs-header {
-background: linear-gradient(180deg, #1b2838 0%, #171a21 100%);     padding: 4rem 0 3rem;
-    border-bottom: 1px solid #e9ecef;
-}
-
+/* Header con Círculo Icónico */
 .faqs-icon-circle {
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(135deg, #66c0f4 0%, #2a8fbd 100%);
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 2rem;
-    color: white;
-    box-shadow: 0 10px 30px rgba(102, 192, 244, 0.3);
+  background: linear-gradient(135deg, rgba(102, 192, 244, 0.2) 0%, rgba(42, 143, 189, 0.2) 100%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  border: 1px solid #66c0f4;
+  color: #66c0f4;
+  box-shadow: 0 0 20px rgba(102, 192, 244, 0.2);
 }
 
 .faqs-title {
-    color: #2a475e;
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
-.faqs-description {
-    color: #6c757d;
-    font-size: 1.2rem;
-    margin: 0;
-}
-
-/* ===================================
-   3. CONTENT SECTION
-   =================================== */
-.faqs-content {
-background: linear-gradient(180deg, #1b2838 0%, #171a21 100%); }
-
-/* ===================================
-   4. CATEGORÍAS
-   =================================== */
+/* Categorías */
 .faq-category {
-    margin-bottom: 3rem;
+  margin-bottom: 40px;
 }
 
 .faq-category-title {
-    color: #66c0f4;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid rgba(102, 192, 244, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #66c0f4;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(102, 192, 244, 0.1);
 }
 
-.faq-category-title svg {
-    flex-shrink: 0;
-}
-
-/* ===================================
-   5. FAQ ITEMS
-   =================================== */
+/* Acordeón Estilo Steam */
 .faq-item {
-    background: #ffffff;
-    border: 2px solid #e9ecef;
-    border-radius: 16px;
-    margin-bottom: 1rem;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background: #16202d;
+  border-radius: 15px !important; /* Bordes de 15px */
+  margin-bottom: 12px;
+  border: 1px solid rgba(42, 71, 94, 0.5);
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .faq-item:hover {
-    border-color: #66c0f4;
-    box-shadow: 0 4px 20px rgba(102, 192, 244, 0.15);
+  border-color: #66c0f4;
+  background: #1c2e42;
 }
 
-/* ===================================
-   6. PREGUNTA (ACCORDION BUTTON)
-   =================================== */
 .faq-question {
-    width: 100%;
-    background: transparent;
-    border: none;
-    color: #2a475e;
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 1.5rem 2rem;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  width: 100%;
+  padding: 20px 25px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  font-weight: 300;
+  transition: color 0.3s ease;
 }
 
-.faq-question:hover {
-    color: #66c0f4;
+.faq-question:not(.collapsed) {
+  color: #66c0f4;
+  box-shadow: none;
 }
 
-.faq-question:focus {
-    outline: none;
-    box-shadow: none;
-}
-
-/* Icono de flecha */
+/* Rotación del Icono */
 .faq-icon {
-    flex-shrink: 0;
-    color: #66c0f4;
-    transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+  color: #66c0f4;
 }
 
 .faq-question:not(.collapsed) .faq-icon {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
-/* ===================================
-   7. RESPUESTA (ACCORDION BODY)
-   =================================== */
 .faq-answer {
-    color: #6c757d;
-    font-size: 1rem;
-    line-height: 1.8;
-    padding: 0 2rem 1.5rem 2rem;
-    background: #f8f9fa;
+  padding: 0 25px 25px 25px;
+  color: #acb2b8;
+  line-height: 1.6;
 }
 
-/* ===================================
-   8. BOOTSTRAP ACCORDION OVERRIDES
-   =================================== */
-.accordion {
-    --bs-accordion-bg: transparent;
-    --bs-accordion-border-color: transparent;
-    --bs-accordion-btn-focus-box-shadow: none;
-}
-
-.accordion-header {
-    margin-bottom: 0;
-}
-
-.accordion-button {
-    background-color: transparent;
-    box-shadow: none;
-}
-
-.accordion-button:not(.collapsed) {
-    background-color: transparent;
-    color: #66c0f4;
-    box-shadow: none;
-}
-
-.accordion-button::after {
-    display: none;
-}
-
-.accordion-collapse {
-    border: none;
-}
-
-.accordion-body {
-    padding: 0;
-}
-
-/* ===================================
-   9. CTA CARD
-   =================================== */
+/* Card de Contacto (CTA) */
 .faq-cta-card {
-    background: linear-gradient(145deg, #f8f9fa 0%, #ffffff 100%);
-    border: 2px solid #e9ecef;
-    border-radius: 20px;
-    padding: 3rem;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  background: linear-gradient(rgba(22, 32, 45, 0.8), rgba(22, 32, 45, 0.8)), 
+              url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+  border-radius: 15px;
+  padding: 40px;
+  text-align: center;
+  border: 1px solid rgba(102, 192, 244, 0.3);
+  margin-top: 50px;
 }
 
 .faq-cta-title {
-    color: #2a475e;
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-}
-
-.faq-cta-description {
-    color: #6c757d;
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+  color: #ffffff;
+  font-weight: 500;
 }
 
 .faq-cta-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 25px;
 }
 
-/* ===================================
-   10. BOTONES
-   =================================== */
+/* Botones con tu degradado */
 .btn-primary-gradient {
-    background: linear-gradient(90deg, #06BFFF 0%, #2a8fbd 100%);
-    border: none;
-    color: white;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(102, 192, 244, 0.3);
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
+  background: linear-gradient(90deg, #66c0f4 0%, #2a8fbd 100%);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s;
 }
 
 .btn-primary-gradient:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(102, 192, 244, 0.5);
-    color: white;
+  transform: scale(1.05);
+  color: white;
+  filter: brightness(1.1);
 }
 
 .btn-secondary-outline {
-    background: transparent;
-    border: 2px solid rgba(102, 192, 244, 0.3);
-    color: #66c0f4;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
+  background: transparent;
+  color: #66c0f4;
+  border: 1px solid #66c0f4;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s;
 }
 
 .btn-secondary-outline:hover {
-    background: rgba(102, 192, 244, 0.1);
-    border-color: #66c0f4;
-    color: #66c0f4;
+  background: rgba(102, 192, 244, 0.1);
+  color: #ffffff;
+  border-color: #ffffff;
 }
 
-/* ===================================
-   11. ANIMACIONES
-   =================================== */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.faq-item {
-    animation: fadeIn 0.5s ease-out;
-}
-
-.faq-item:nth-child(1) { animation-delay: 0.1s; }
-.faq-item:nth-child(2) { animation-delay: 0.2s; }
-.faq-item:nth-child(3) { animation-delay: 0.3s; }
-.faq-item:nth-child(4) { animation-delay: 0.4s; }
-
-/* ===================================
-   12. RESPONSIVE
-   =================================== */
-@media (max-width: 991px) {
-    .faqs-title {
-        font-size: 2.5rem;
-    }
-    
-    .faq-cta-card {
-        padding: 2rem;
-    }
-}
-
-@media (max-width: 767px) {
-    .faqs-title {
-        font-size: 2rem;
-    }
-    
-    .faqs-description {
-        font-size: 1rem;
-    }
-    
-    .faq-question {
-        font-size: 1rem;
-        padding: 1.25rem 1.5rem;
-    }
-    
-    .faq-answer {
-        font-size: 0.95rem;
-        padding: 0 1.5rem 1.25rem 1.5rem;
-    }
-    
-    .faq-category-title {
-        font-size: 1.25rem;
-    }
-    
-    .faq-cta-buttons {
-        flex-direction: column;
-    }
-    
-    .btn-primary-gradient,
-    .btn-secondary-outline {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-/* ===================================
-   13. LIGHT MODE OPTIMIZATION
-   =================================== */
-::selection {
-    background: #66c0f4;
-    color: white;
-}
-
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f8f9fa;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #dee2e6;
-    border-radius: 6px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #66c0f4;
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
+  .faq-cta-buttons {
+    flex-direction: column;
+  }
+  .faq-question {
+    font-size: 0.95rem;
+  }
 }

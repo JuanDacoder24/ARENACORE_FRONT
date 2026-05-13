@@ -1,0 +1,136 @@
+/* Reutilizamos el contenedor y fondo del registro */
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  background: radial-gradient(circle at top right, #1b2838 0%, #0d121a 100%);
+}
+
+.auth-card {
+  background: rgba(27, 40, 56, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(102, 192, 244, 0.1);
+  border-radius: 20px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.auth-title {
+  color: #fff;
+  font-weight: 800;
+  font-size: 2rem;
+  letter-spacing: -0.5px;
+}
+
+.auth-subtitle {
+  color: #66c0f4; /* Celeste en lugar de verde */
+  font-weight: 500;
+}
+
+/* Inputs */
+.form-label-custom {
+  color: #8f98a0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.form-input-custom {
+  background: #0d121a !important;
+  border: 1.5px solid #2a475e !important;
+  color: #fff !important;
+  border-radius: 10px !important;
+  padding: 0.85rem 1rem !important;
+  transition: all 0.3s ease;
+}
+
+.form-input-custom:focus {
+  border-color: #66c0f4 !important;
+  box-shadow: 0 0 0 4px rgba(102, 192, 244, 0.15) !important;
+}
+
+/* Iconos y espaciado */
+.input-group-custom { position: relative; }
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #66c0f4; /* Celeste ArenaCore */
+  z-index: 2;
+  pointer-events: none;
+}
+
+.ps-5-custom {
+  padding-left: 3.2rem !important; /* Espacio para que el texto no toque el icono */
+}
+
+/* Links y Checkbox */
+.forgot-link {
+  color: #66c0f4;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.forgot-link:hover { text-decoration: underline; }
+
+.check-label {
+  color: #8f98a0;
+  font-size: 0.9rem;
+}
+
+.custom-check {
+  background-color: #0d121a;
+  border-color: #2a475e;
+}
+
+.custom-check:checked {
+  background-color: #66c0f4;
+  border-color: #66c0f4;
+}
+
+/* Botones */
+.btn-auth-submit {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(90deg, #47bfff 0%, #1a7abb 100%);
+  border: none;
+  color: white;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(26, 122, 187, 0.3);
+}
+
+.btn-auth-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(26, 122, 187, 0.5);
+}
+
+.btn-auth-secondary {
+  width: 100%;
+  padding: 1rem;
+  background: transparent;
+  border: 1.5px solid #2a475e;
+  color: #c7d5e0;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-auth-secondary:hover {
+  background: rgba(42, 71, 94, 0.3);
+  border-color: #66c0f4;
+  color: white;
+}

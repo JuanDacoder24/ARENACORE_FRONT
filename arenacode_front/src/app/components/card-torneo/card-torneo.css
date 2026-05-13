@@ -1,109 +1,134 @@
+/* Tarjeta de Torneo */
 .torneo-card {
-  background: #ffffff;
-  border-radius: 16px;
+  background: #1b2838;
+  border-radius: 15px;
+  border: 1px solid rgba(42, 71, 94, 0.8);
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
-  min-height: 420px; 
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border: 1px solid #f0f2f5;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  gap: 15px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .torneo-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  background: #212f3f;
+  border-color: #66c0f4;
 }
 
-/* Header & Badges */
+/* Header de la tarjeta */
 .card-header-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 12px;
+  align-items: flex-start;
 }
 
+.torneo-nombre {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.torneo-juego {
+  font-size: 0.9rem;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Badges (Público/Privado/Finalizado) */
 .badge-wrapper {
   display: flex;
-  flex-direction: column;
   gap: 6px;
-  align-items: flex-end;
 }
 
 .badge-main {
   font-size: 0.7rem;
-  font-weight: 700;
+  font-weight: 800;
   padding: 4px 10px;
   border-radius: 20px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
-/* Info Grid */
+/* Cuerpo de información */
+.torneo-descripcion {
+  font-size: 0.9rem;
+  color: #acb2b8;
+  line-height: 1.5;
+}
+
 .torneo-info {
-  background: #f8fafc;
-  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
   padding: 12px;
-  margin: 16px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
 .info-row {
   display: flex;
   justify-content: space-between;
-  font-size: 0.85rem;
+  margin-bottom: 6px;
 }
 
+.info-row:last-child { margin-bottom: 0; }
+
 .info-label {
-  color: #64748b;
-  font-weight: 500;
+  color: #67707b;
+  font-size: 0.8rem;
 }
 
 .info-value {
-  color: #1e293b;
-  font-weight: 700;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
 }
 
+/* Botones y Footer */
 .btn-action {
   width: 100%;
-  height: 45px;
-  border-radius: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
   font-weight: 700;
   font-size: 0.9rem;
   cursor: pointer;
-  border: none;
   transition: all 0.2s;
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-
-.btn-manage {
-  background: linear-gradient(135deg, #66c0f4 0%, #2a8fbd 100%);
-  color: #ffffff;
-}
-
-.btn-manage:hover {
-  background: linear-gradient(135deg, #4c8fb6 0%, #1f698b 100%);
-  color: white;
+  align-items: center;
 }
 
 .btn-join {
-  background: linear-gradient(90deg, #06BFFF 0%, #2a8fbd 100%);
+  background: linear-gradient(90deg, #47bfff 0%, #1a7abb 100%);
   color: white;
 }
 
-.btn-join:hover {
-  background: linear-gradient(135deg, #4c8fb6 0%, #1f698b 100%);
+.btn-join:hover:not(:disabled) {
+  filter: brightness(1.2);
+  box-shadow: 0 0 15px rgba(102, 192, 244, 0.4);
+}
+
+.btn-manage {
+  background: #5c7e10; /* Verde Steam "Play" */
   color: white;
+}
+
+.btn-manage:hover {
+  background: #a4d007;
+  color: #000;
+}
+
+.btn-inscrito {
+  background: rgba(103, 112, 123, 0.2) !important;
+  color: #66c0f4 !important;
+  border: 1px solid rgba(102, 192, 244, 0.3) !important;
 }
 
 .owner-footer {
   text-align: center;
   font-size: 0.75rem;
-  color: #06BFFF;
-  font-weight: 600;
+  color: #66c0f4;
   margin-top: 8px;
+  font-style: italic;
 }

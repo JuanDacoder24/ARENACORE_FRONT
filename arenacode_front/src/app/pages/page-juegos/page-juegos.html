@@ -5,36 +5,29 @@
       <div class="header-content">
         <h1 class="page-title">
           <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
           </svg>
           Juegos Disponibles
         </h1>
         <p class="page-subtitle">Explora todos los juegos en los que puedes competir</p>
       </div>
-      
+
       <div class="header-actions">
         <div class="search-box">
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
-          <input 
-            type="text" 
-            class="search-input" 
-            placeholder="Buscar juegos..."
-            [ngModel]="searchTerm()"
-            (ngModelChange)="actualizarBusqueda($event)"
-          />
+          <input type="text" class="search-input" placeholder="Buscar juegos..." [ngModel]="searchTerm()"
+            (ngModelChange)="actualizarBusqueda($event)" />
         </div>
-        
+
         <div class="category-filter ms-3">
-          <select 
-            class="form-select" 
-            [value]="categoriaIdSeleccionada()"
-            (change)="filtrarPorCategoria($any($event.target).value)"
-          >
-            <option [value]="null">Todas las categorías</option>
+          <select class="form-select" [ngModel]="categoriaIdSeleccionada()"
+            (ngModelChange)="filtrarPorCategoria($event)">
+            <option [ngValue]="null">Todas las categorías</option>
             @for (cat of categorias(); track cat.id) {
-              <option [value]="cat.id">{{ cat.nombre }}</option>
+            <option [ngValue]="cat.id">{{ cat.nombre }}</option>
             }
           </select>
         </div>
@@ -42,53 +35,53 @@
     </div>
 
     @if (error()) {
-      <div class="alert alert-danger m-3">
-        {{ error() }}
-        <button class="btn btn-sm btn-outline-danger ms-3" (click)="recargar()">
-          Reintentar
-        </button>
-      </div>
+    <div class="alert alert-danger m-3">
+      {{ error() }}
+      <button class="btn btn-sm btn-outline-danger ms-3" (click)="recargar()">
+        Reintentar
+      </button>
+    </div>
     }
 
     @if (cargando()) {
-      <div class="loading-state">
-        <div class="spinner-border" role="status"></div>
-        <p class="loading-text">Cargando juegos...</p>
-      </div>
+    <div class="loading-state">
+      <div class="spinner-border" role="status"></div>
+      <p class="loading-text">Cargando juegos...</p>
+    </div>
     } @else {
-      @if (juegos().length === 0) {
-        <!-- Estado: No hay juegos en la base de datos -->
-        <div class="empty-state">
-          <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-          </svg>
-          <h3 class="empty-title">No hay juegos disponibles</h3>
-          <p class="empty-description">Vuelve más tarde para ver nuevos juegos</p>
-        </div>
-      } @else if (juegosFiltrados().length > 0) {
-        <!-- Estado: Juegos encontrados -->
-        <div class="games-grid">
-          @for (juego of juegosFiltrados(); track juego.id) {
-            <app-card-juego [juego]="juego" />
-          }
-        </div>
-        
-        @if (juegos().length !== juegosFiltrados().length) {
-          <div class="stats-info text-muted mt-3 text-center">
-            Mostrando {{ juegosFiltrados().length }} de {{ juegos().length }} juegos
-          </div>
-        }
-      } @else {
-        <!-- Estado: Búsqueda sin resultados -->
-        <div class="empty-state">
-          <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-          <h3 class="empty-title">No se encontraron resultados</h3>
-          <p class="empty-description">Intenta con otro término o categoría</p>
-          <button class="btn btn-primary mt-3" (click)="limpiarBusqueda()">Limpiar filtros</button>
-        </div>
+    @if (juegos().length === 0) {
+    <div class="empty-state">
+      <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+      </svg>
+      <h3 class="empty-title">No hay juegos disponibles</h3>
+      <p class="empty-description">Vuelve más tarde para ver nuevos juegos</p>
+    </div>
+    } @else if (juegosFiltrados().length > 0) {
+    <div class="games-grid">
+      @for (juego of juegosFiltrados(); track juego.id) {
+      <app-card-juego [juego]="juego" [nombreCategoria]="getNombreCategoria(juego.categoria_id)">
+      </app-card-juego>
       }
+    </div>
+
+    @if (juegos().length !== juegosFiltrados().length) {
+    <div class="stats-info text-muted mt-3 text-center">
+      Mostrando {{ juegosFiltrados().length }} de {{ juegos().length }} juegos
+    </div>
+    }
+    } @else {
+    <!-- Estado: Búsqueda sin resultados -->
+    <div class="empty-state">
+      <svg width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+      <h3 class="empty-title">No se encontraron resultados</h3>
+      <p class="empty-description">Intenta con otro término o categoría</p>
+      <button class="btn btn-primary mt-3" (click)="limpiarBusqueda()">Limpiar filtros</button>
+    </div>
+    }
     }
   </div>
 </div>
