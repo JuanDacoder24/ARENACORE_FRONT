@@ -1,8 +1,11 @@
 <div class="admin-container">
   @if (!cargando) {
     <div class="admin-header">
-      <h1>Gestión de Ganador: {{ torneo?.nombre }}</h1>
-      <span class="badge-premio"> Pozo: {{ torneo?.premio_total }} monedas</span>
+      <h1>Gestión de Ganador: {{ torneo.nombre }}</h1>
+      <span class="badge-premio"> Pozo: {{ torneo.premio_total }} monedas</span>
+      @if (estaFinalizado) {
+        <span class="badge-finalizado"> Torneo Finalizado</span>
+      }
     </div>
 
     <div class="admin-grid">
@@ -19,37 +22,56 @@
                   <p class="p-level">Nivel {{ p.nivel }}</p>
                 </div>
               </div>
-              <button (click)="elegirGanador(p.id, p.username)" class="btn-winner">
+              <button 
+                (click)="elegirGanador(p.id, p.username)" 
+                class="btn-winner"
+                [disabled]="estaFinalizado">
                  Elegir Ganador
               </button>
             </div>
           }
         </div>
 
-        @if (participantes.length > 0) {
+        @if (participantes.length > 0 && !estaFinalizado) {
           <div class="winner-note">
-            Selecciona el jugador que ganó el torneo. Esto finalizará el torneo y entregará el premio.
+             Selecciona el jugador que ganó el torneo. Esto finalizará el torneo y entregará el premio.
           </div>
-        } @else if (participantes.length === 0) {
+        } @else if (participantes.length > 0 && estaFinalizado) {
+          <div class="winner-note finalizado">
+             Este torneo ya ha finalizado. El ganador ya recibió su premio.
+          </div>
+        } @else if (participantes.length === 0 && !estaFinalizado) {
           <div class="empty-state">
-            Aún no hay jugadores inscritos en este torneo.
+             Aún no hay jugadores inscritos en este torneo.
+          </div>
+        } @else if (participantes.length === 0 && estaFinalizado) {
+          <div class="empty-state finalizado">
+             Torneo finalizado sin participantes.
           </div>
         }
       </div>
 
       <div class="summary-card">
         <h3>Resumen del Cierre</h3>
-        <p>Al elegir un ganador, ocurrirá lo siguiente:</p>
-        <ul>
-          <li>El torneo pasará a estado <strong>Finalizado</strong>.</li>
-          <li>Se sumarán <strong>{{ torneo?.premio_total }}</strong> monedas a la billetera del usuario.</li>
-          <li>Esta acción no se puede deshacer.</li>
-        </ul>
-        <div class="warning-box">
-           Asegúrate de que el resultado sea el correcto según las reglas del juego.
-        </div>
+        @if (!estaFinalizado) {
+          <p>Al elegir un ganador, ocurrirá lo siguiente:</p>
+          <ul>
+            <li>El torneo pasará a estado <strong>Finalizado</strong>.</li>
+            <li>Se sumarán <strong>{{ torneo.premio_total }}</strong> monedas a la billetera del usuario.</li>
+            <li>Esta acción no se puede deshacer.</li>
+          </ul>
+          <div class="warning-box">
+             Asegúrate de que el resultado sea el correcto según las reglas del juego.
+          </div>
+        } @else {
+          <div class="info-box">
+             Este torneo ya está finalizado. No se pueden realizar más cambios.
+          </div>
+          
+        }
       </div>
     </div>
+
   } @else {
     <div class="loader">Cargando gestión del torneo...</div>
   }

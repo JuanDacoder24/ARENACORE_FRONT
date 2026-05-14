@@ -18,9 +18,7 @@
             </svg>
             Nivel {{ estadisticas.nivel }}
           </span>
-          <span class="stat-badge stat-badge-success" >
-            {{ ((estadisticas.torneos_ganados / estadisticas.torneos_jugados) * 100).toFixed(1) }}% Win Rate
-          </span>
+          
         </div>
       </div>
     </div>
@@ -52,21 +50,7 @@
           </div>
         </div>
       </div>
-      <div class="stat-card stat-card-success">
-        <div class="stat-content">
-          <p class="stat-label">Partidas Ganadas</p>
-          <h3 class="stat-value">{{ estadisticas.partidas_ganadas }} / {{ estadisticas.partidas_jugadas }}</h3>
-          <div class="progress mb-2" style="height: 1.2rem; background: #22304a;">
-            <div class="progress-bar bg-info" role="progressbar"
-              [style.width]="((estadisticas.partidas_ganadas / estadisticas.partidas_jugadas) * 100) + '%'"
-              [attr.aria-valuenow]="estadisticas.partidas_ganadas"
-              [attr.aria-valuemin]="0"
-              [attr.aria-valuemax]="estadisticas.partidas_jugadas">
-              {{ ((estadisticas.partidas_ganadas / estadisticas.partidas_jugadas) * 100).toFixed(1) }}%
-            </div>
-          </div>
-        </div>
-      </div>
+      
 
       <div class="stat-card stat-card-info">
         <div class="stat-icon">

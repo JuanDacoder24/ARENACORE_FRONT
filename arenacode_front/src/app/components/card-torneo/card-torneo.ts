@@ -25,12 +25,10 @@ export class CardTorneo {
   ngOnInit() {
   }
 
-  // Determina si el usuario actual es el que creó este torneo
   get esOrganizador(): boolean {
     return Number(this.torneo.organizador_id) === this.usuarioLogueadoId;
   }
 
-  // Determina si el torneo ya terminó
   get estaFinalizado(): boolean {
     return this.torneo.estado === 'finalizado';
   }
