@@ -6,12 +6,12 @@
         <p class="torneo-juego" style="color:#06BFFF; font-weight:600;">{{ torneo.juego_nombre }}</p>
       </div>
       <div class="badge-wrapper">
-        <span class="badge-main" [style.background]="torneo.tipo === 'privado' ? '#fee2e2' : '#f1f5f9'" 
-                                [style.color]="torneo.tipo === 'privado' ? '#ef4444' : '#475569'">
+        <span class="badge-main" [style.background]="torneo.tipo === 'privado' ? '#fee2e2' : '#f1f5f9'"
+          [style.color]="torneo.tipo === 'privado' ? '#ef4444' : '#475569'">
           {{ torneo.tipo === 'privado' ? ' Privado' : ' Público' }}
         </span>
         @if (estaFinalizado) {
-          <span class="badge-main" style="background:#dcfce7; color:#16a34a;"> Finalizado</span>
+        <span class="badge-main" style="background:#dcfce7; color:#16a34a;"> Finalizado</span>
         }
       </div>
     </div>
@@ -38,26 +38,25 @@
 
   <div class="footer-area">
     @if (esOrganizador) {
-      <button (click)="irAGestionar()" class="btn-action btn-manage">
-        {{ estaFinalizado ? 'Ver Resultados' : ' Gestionar Ganador' }}
-      </button>
-      <div class="owner-footer">Eres el organizador</div>
+    <button (click)="irAGestionar()" class="btn-action btn-manage">
+      {{ estaFinalizado ? 'Ver Resultados' : ' Gestionar Ganador' }}
+    </button>
+    <div class="owner-footer">Eres el organizador</div>
     } @else {
-      @if (estaFinalizado) {
-        <button class="btn-action" style="background:#f1f5f9; color:#94a3b8; cursor:not-allowed;" disabled>
-          Torneo Finalizado
-        </button>
-      } @else {
-        <button (click)="unirseAlTorneo(torneo.id)"
-          [disabled]="estaInscrito || cargando || (torneo.participantes_actuales! >= torneo.max_participantes)"
-          [class.btn-inscrito]="estaInscrito"
-          class="btn-action btn-join">
-          @if (cargando) { <span>Cargando...</span> }
-          @else if (estaInscrito) { <span> Inscrito</span> }
-          @else if (torneo.participantes_actuales! >= torneo.max_participantes) { <span>Lleno</span> }
-          @else { <span>Unirse al Torneo</span> }
-        </button>
-      }
+    @if (estaFinalizado) {
+    <button class="btn-action" style="background:#f1f5f9; color:#94a3b8; cursor:not-allowed;" disabled>
+      Torneo Finalizado
+    </button>
+    } @else {
+    <button (click)="unirseAlTorneo(torneo.id)"
+      [disabled]="estaInscrito || cargando || (torneo.participantes_actuales! >= torneo.max_participantes)"
+      [class.btn-inscrito]="estaInscrito" class="btn-action btn-join">
+      @if (cargando) { <span>Cargando...</span> }
+      @else if (estaInscrito) { <span> Inscrito</span> }
+      @else if (torneo.participantes_actuales! >= torneo.max_participantes) { <span>Lleno</span> }
+      @else { <span>Unirse al Torneo</span> }
+    </button>
+    }
     }
   </div>
 </div>

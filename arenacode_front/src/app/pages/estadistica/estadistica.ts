@@ -1,6 +1,6 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { UserService } from '../../service/user-service';
-import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core'
+import { UserService } from '../../service/user-service'
+import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'app-estadistica',
@@ -10,39 +10,40 @@ import { CommonModule } from '@angular/common';
 })
 export class PageEstadisticas implements OnInit {
   
-  private userService = inject(UserService);
+  private userService = inject(UserService)
 
-  usuario: any = null;
-  estadisticas: any = null;
-  cargando: boolean = true;
+  usuario: any = null
+  estadisticas: any = null
+  cargando: boolean = true
 
   async ngOnInit() {
-    const userStr = localStorage.getItem('user');
+    const userStr = localStorage.getItem('user')
     if (userStr) {
-      this.usuario = JSON.parse(userStr);
+      this.usuario = JSON.parse(userStr)
     } else {
       this.usuario = {
         id: Number(localStorage.getItem('id')) || 0,
         nombre: localStorage.getItem('nombre') || '',
+        username: localStorage.getItem('username') || '',
         email: localStorage.getItem('email') || ''
-      };
+      }
     }
     if (this.usuario.id) {
-      await this.cargarEstadisticas();
+      await this.cargarEstadisticas()
     } else {
-      this.cargando = false;
+      this.cargando = false
     }
   }
 
   async cargarEstadisticas() {
     try {
-      const response = await this.userService.getEstadisticas(this.usuario.id);
-      this.estadisticas = response.data || response; // Soporta ambas formas
+      const response = await this.userService.getEstadisticas(this.usuario.id)
+      this.estadisticas = response.data || response 
     } catch (error) {
-      console.error('Error al cargar estadísticas:', error);
-      this.estadisticas = null;
+      console.error('Error al cargar estadísticas:', error)
+      this.estadisticas = null
     } finally {
-      this.cargando = false;
+      this.cargando = false
     }
   }
 }

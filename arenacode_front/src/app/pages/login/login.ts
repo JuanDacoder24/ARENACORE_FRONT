@@ -34,7 +34,8 @@ export class Login {
         res.data.token,
         res.data.user.id,
         res.data.user.nombre,
-        res.data.user.email
+        res.data.user.email,
+        res.data.user.username
       )
             
       this.router.navigate(['/dashboard'])
@@ -44,7 +45,8 @@ export class Login {
         res.token,
         res.user.id,
         res.user.nombre,
-        res.user.email
+        res.user.email,
+        res.user.username
       )
       console.log('Token guardado:', localStorage.getItem('token'))
       await this.router.navigate(['/dashboard'])

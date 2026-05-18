@@ -11,10 +11,8 @@ export class Navbar {
 
   private router = inject(Router);
 
-  // modificar si es necesario
   logout(){
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('refreshToken');
-    this.router.navigate(['/home']);
+    localStorage.removeItem('token');
+    this.router.navigate(['/landingPage']);
   }
 }

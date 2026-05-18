@@ -25,7 +25,8 @@ export class Register {
                     res.data.token,
                     res.data.user.id,
                     res.data.user.nombre,
-                    res.data.user.email
+                    res.data.user.email,
+                    res.data.user.username
                 )
             }
             Swal.fire({

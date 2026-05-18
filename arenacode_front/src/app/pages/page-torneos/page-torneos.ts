@@ -27,7 +27,7 @@ export class PageTorneos implements OnInit {
 
   async cargarTorneos() {
     try {
-      this.torneos = await this.torneoService.getTorneos();  // ← getTorneos() no getAllTorneos()
+      this.torneos = await this.torneoService.getTorneos(); 
       this.actualizarFiltros();
     } catch (error) {
       console.error('Error al cargar torneos:', error);
@@ -52,7 +52,6 @@ export class PageTorneos implements OnInit {
   }
 
   private actualizarFiltros() {
-    // Calcular contadores
     const activos = this.torneos.filter(t => t.estado === 'abierto').length;
     const enProgreso = this.torneos.filter(t => t.estado === 'en_progreso').length;
     const finalizados = this.torneos.filter(t => t.estado === 'finalizado').length;
@@ -64,7 +63,6 @@ export class PageTorneos implements OnInit {
       finalizados
     };
 
-    // Aplicar filtro
     let resultado = [...this.torneos];
 
     if (this.filtroActivo === 'activos') {
@@ -75,7 +73,6 @@ export class PageTorneos implements OnInit {
       resultado = resultado.filter(t => t.estado === 'finalizado');
     }
 
-    // Aplicar búsqueda
     if (this.searchTerm.trim()) {
       const termino = this.searchTerm.toLowerCase();
       resultado = resultado.filter(torneo =>

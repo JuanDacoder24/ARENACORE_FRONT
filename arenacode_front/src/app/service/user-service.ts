@@ -12,6 +12,7 @@ export class UserService {
   private idSignal = signal<number>(Number(localStorage.getItem('id')) || 0);
   private nombreSignal = signal<string>(localStorage.getItem('nombre') || '');
   private emailSignal = signal<string>(localStorage.getItem('email') || '');
+  private usernameSignal = signal<string>(localStorage.getItem('username') || '');
 
   constructor() {}
 
@@ -26,7 +27,7 @@ export class UserService {
     const token = res.token || res.data?.token;
     const userData = res.user || res.data?.user;
     if (token && userData) {
-      this.setAuthData(token, userData.id, userData.nombre, userData.email);
+      this.setAuthData(token, userData.id, userData.nombre, userData.email, userData.username);
     }
     return res;
   }
@@ -37,15 +38,16 @@ export class UserService {
     );
   }
 
-  setAuthData(token: string, id: number, nombre: string, email: string) {
+  setAuthData(token: string, id: number, nombre: string, email: string, username: string) {
     localStorage.setItem('token', token);
     localStorage.setItem('id', String(id));
     localStorage.setItem('nombre', nombre);
     localStorage.setItem('email', email);
+    localStorage.setItem('username', username); 
     this.tokenSignal.set(token);
     this.idSignal.set(id);
     this.nombreSignal.set(nombre);
-    this.emailSignal.set(email);
+    this.usernameSignal.set(username);
   }
 
   logout() {
@@ -53,10 +55,12 @@ export class UserService {
     localStorage.removeItem('id');
     localStorage.removeItem('nombre');
     localStorage.removeItem('email');
+    localStorage.removeItem('username');
     this.tokenSignal.set('');
     this.idSignal.set(0);
     this.nombreSignal.set('');
     this.emailSignal.set('');
+    this.usernameSignal.set('');
   }
 
   async register(user: IUser): Promise<any> {
