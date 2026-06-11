@@ -34,7 +34,7 @@ export class Register {
                 title: '¡Bienvenido!',
                 background: '#0d2a4a',
                 color: 'white',
-                confirmButtonColor: '#27ae60',
+                confirmButtonColor: '#66c0f4',
                 text: 'Cuenta creada exitosamente'
             })
             this.router.navigate(['/dashboard'])
@@ -44,7 +44,7 @@ export class Register {
                 title: 'Error',
                 background: '#0d2a4a',
                 color: 'white',
-                confirmButtonColor: '#27ae60',
+                confirmButtonColor: '#66c0f4',
                 text: 'No se pudo registrar el usuario.'
             })
         }

@@ -1,6 +1,5 @@
 <div class="form-wrapper">
     
-    <!-- Header -->
     <section class="form-header">
         <div class="container py-4">
             <div class="d-flex align-items-center justify-content-between">
@@ -20,16 +19,13 @@
         </div>
     </section>
 
-    <!-- Form Content -->
     <section class="form-content">
         <div class="container py-5">
-            <form [formGroup]="modelForm" (ngSubmit)="getDataForm()">
+            <form [formGroup]="modelForm" (ngSubmit)="enviarFormulario()">
                 <div class="row g-4">
                     
-                    <!-- Columna Izquierda -->
                     <div class="col-lg-8">
                         
-                        <!-- Información Básica -->
                         <div class="form-card">
                             <div class="form-card-header">
                                 <h3 class="form-card-title">
@@ -41,7 +37,6 @@
                             </div>
                             <div class="form-card-body">
                                 
-                                <!-- Nombre -->
                                 <div class="form-group">
                                     <label class="form-label" for="nombre">
                                         Nombre del Torneo
@@ -57,7 +52,6 @@
                                     <small class="form-hint">Elige un nombre atractivo y descriptivo</small>
                                 </div>
 
-                                <!-- Descripción -->
                                 <div class="form-group">
                                     <label class="form-label" for="descripcion">
                                         Descripción
@@ -72,7 +66,6 @@
                                     <small class="form-hint">Proporciona detalles sobre el torneo</small>
                                 </div>
 
-                                <!-- Juego y Organizador -->
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <label class="form-label" for="juego_id">
@@ -89,22 +82,9 @@
                                             <option value="6">PUBG</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label" for="organizador_id">
-                                            ID Organizador
-                                            <span class="required">*</span>
-                                        </label>
-                                        <input 
-                                            type="text" 
-                                            class="form-control" 
-                                            id="organizador_id"
-                                            formControlName="organizador_id"
-                                            placeholder="ID del organizador"
-                                        />
-                                    </div>
+                                    
                                 </div>
 
-                                <!-- Reglas -->
                                 <div class="form-group">
                                     <label class="form-label" for="reglas">
                                         Reglas del Torneo
@@ -121,7 +101,6 @@
                             </div>
                         </div>
 
-                        <!-- Fechas -->
                         <div class="form-card">
                             <div class="form-card-header">
                                 <h3 class="form-card-title">
@@ -162,10 +141,8 @@
 
                     </div>
 
-                    <!-- Columna Derecha -->
                     <div class="col-lg-4">
                         
-                        <!-- Configuración -->
                         <div class="form-card sticky-card">
                             <div class="form-card-header">
                                 <h3 class="form-card-title">
@@ -178,7 +155,6 @@
                             </div>
                             <div class="form-card-body">
                                 
-                                <!-- Tipo -->
                                 <div class="form-group">
                                     <label class="form-label">
                                         Tipo de Torneo
@@ -216,7 +192,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Estado -->
                                 <div class="form-group">
                                     <label class="form-label" for="estado">
                                         Estado
@@ -230,7 +205,6 @@
                                     </select>
                                 </div>
 
-                                <!-- Participantes -->
                                 <div class="form-group">
                                     <label class="form-label" for="max_participantes">
                                         Máximo de Participantes
@@ -261,40 +235,38 @@
 
                                 <div class="divider"></div>
 
-                                <!-- Precios -->
                                 <div class="form-group">
                                     <label class="form-label" for="precio_inscripcion">
                                         Precio de Inscripción
                                     </label>
-                                        <input 
-                                            type="number" 
-                                            class="form-control" 
-                                            id="precio_inscripcion"
-                                            formControlName="precio_inscripcion"/>
+                                    <input 
+                                        type="number" 
+                                        class="form-control" 
+                                        id="precio_inscripcion"
+                                        formControlName="precio_inscripcion"
+                                    />
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-label" for="premio_total">
                                         Premio Total
                                     </label>
-                                        <input 
-                                            type="number" 
-                                            class="form-control" 
-                                            id="premio_total"
-                                            formControlName="premio_total"/>
+                                    <input 
+                                        type="number" 
+                                        class="form-control" 
+                                        id="premio_total"
+                                        formControlName="premio_total"
+                                    />
                                 </div>
                             </div>
                         </div>
-
-                        
 
                     </div>
 
                 </div>
 
-                <!-- Actions -->
                 <div class="form-actions">
-                    <button type="button" class="btn-cancel" [routerLink]="['/dashboard/home']">
+                    <button type="button" class="btn-cancel" [routerLink]="['/dashboard/pageTorneos']">
                         <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
